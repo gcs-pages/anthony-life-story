@@ -1,0 +1,78 @@
+
+1ST-GENERATION-SCOTT-FAMILY
+
+GENDER
+    brother
+    sister
+
+BIRTH-DATE
+    photo
+    month
+    day
+    year
+
+BIRTH-POSITION
+    01 - 10
+
+EDUCATION
+    grammer school (year)
+    high school    (year and major)
+    trade school   (year and major)
+    college        (year and major)
+    university     (year and major)
+    other school   (year and major)
+ 
+
+WORK-CATEGORY
+    labor
+    blue  colar (profession)
+    white colar (profession)
+
+MARRIAGE-DATE   (hetrosexuals only)
+    photo
+    month
+    day
+    year
+    
+MARRIAGE-SPOUSE (heterosexuals only)
+    photo
+    month
+    day
+    year
+
+DIVORCE-DATE    (heterosexuals only)
+    photo
+    month
+    day
+    year
+
+CHILDREN (per child)
+    photo
+    month
+    day
+    year
+    
+GRAND-CHILDREN (per child)
+    photo
+    month
+    day
+    year
+
+GREAT-GRAND-CHILDREN (per child)
+    photo
+    month
+    day
+    year
+    
+GREAT-GREAT-GRAND-CHILDREN (per child)
+    photo
+    month
+    day
+    year
+
+
+
+
+
+
+

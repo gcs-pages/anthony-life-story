@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Gertrude Scott Family Tree</title>
+	<link href="https://fonts.googleapis.com/css?family=Lato|Open+Sans|PT+Sans|Source+Sans+Pro" rel="stylesheet">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<link rel="stylesheet" href="css/screen.css">
+  <style>
+    /*----------*/
+    /*- Button -*/
+    /*----------*/
+    button {
+        background-color:  #f2f2f2;
+        color:             #000000;
+        text-decoration:   underline;
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+    }
+    /*------------------------------*/
+    /*- Tooltip-Button-Text-Begins -*/
+    /*------------------------------*/
+    .tooltip {
+        position: relative;
+        display: inline-block;
+        opacity: 1;
+    }
+    .tooltip .tooltiptext {
+        visibility: hidden;
+        width: 150px;
+        background-color: #000;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px 0;
+        position: absolute;
+        z-index: 1;
+        top: -5px;
+        left: 105%;
+    }
+    .tooltip:hover .tooltiptext {
+        visibility: visible;
+    }
+    /*---------------------------*/
+    /*- TooltipButton-Text-Ends -*/
+    /*---------------------------*/
+    
+    .row1 {
+        margin-top: 10px;
+    }
+    
+    #body,
+    header,
+    footer,
+    #organizers,
+    #catherine,
+    #peggy,
+    #butchie,
+    #mary,
+    #larry,
+    #gregory,
+    #anthony,
+    #kathleen,
+    #laura,
+    #carolyn  {
+        border: 1px solid black;
+        margin: 10px;
+    }
+    
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        background-color: #A0522D;
+        color: #ffffff;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        margin-left: 5px;
+        margin-right: 5px;
+        padding: 5px;
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+    }
+
+   /*----------------------------------------------------------*/
+   /*- Make jQuery Toggle to Fade-in as Opposed to Fade-out -*/
+   /*----------------------------------------------------------*/
+    header,
+    .main,
+    #catherine,
+    #gregory,
+    #peggy,
+    #anthony,
+    #butchie,
+    #kathleen,
+    #mary,
+    #laura,
+    #larry,
+    #carolyn,
+    footer,
+    #copyright-1,
+    #copyright-2
+    {
+        margin:        auto;
+        margin-bottom: 10px; 
+        display:       none; 
+    }
+    
+    #copyright-1,
+    #copyright-2 {
+        width:  235px;
+        margin: auto;
+    }
+    
+    #copyright-1 {
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+    }
+    
+    .text-color-1 {
+        color:             #ffffff;   /* white */
+        font-weight: bold;
+    }
+    
+    .text-color-2 {
+        color: #ffffff;    /* black */
+        font-weight: bold;
+    }
+    .text-color-3 {
+        color: #ffffff;    /* white */
+        font-weight: bold;
+    }
+
+    /*---------*/
+    /*- Table -*/
+    /*---------*/
+     table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+     table, th, td {
+        padding: 8px;
+        text-align: left;
+        border: 1px solid #ddd;
+      }
+      
+      tr:hover{
+          background-color:#454545;
+          color:           #ffffff;
+      }
+         
+      .text-on-background-1 {
+          color:  #ffffff;
+          background: #A0522D;
+          font-weight: bold;
+
+          clear: left;
+      }
+      
+      .text-on-background-2 {
+          color:        #000000;
+          background:   #ffff00;
+          font-size:    1em;
+          font-weight:  bold;
+      }
+    /*--------------------------*/
+    /*- Tooltip--Images-Begins -*/
+    /*--------------------------*/
+    .tooltip {
+        position: relative;
+          display: inline-block;
+          opacity: 1;
+    }
+    .tooltip .tooltipimage {
+          width: 75px;
+          background-color: #000;
+          color: #fff;
+          text-align: center;
+          border: 1px solid #ddd;
+          margin-right: 10px;
+         float: left;
+         box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+    }
+    .tooltip:hover .tooltipimage {
+          visibility: visible;
+    }
+    /*-----------------------*/
+    /*- Tooltip-Images-Ends -*/
+    /*-----------------------*/
+    .icon-roll
+    {
+         cursor: pointer;
+         font-weight: bold;
+    }
+    
+   /*------------------------*/
+   /*- Children/Float/Logic -*/
+   /*------------------------*/
+    #catherine
+    {
+        float: left;
+    }
+    #gregory
+    {   
+        float: right;
+    }
+       
+    #peggy
+    {
+        clear: both;
+        float: left;
+    }
+       
+    #anthony
+    {
+        float: right;
+    }
+       
+    #butchie
+    {   clear: both;
+        float: left;
+    }
+       
+    #kathleen
+    {
+        float: right;
+    }
+
+    #mary
+    {
+        clear: both;
+        float: left;
+    }
+       
+    #laura
+    {
+        float: right;
+    }
+       
+    #larry
+    {
+        clear: both;
+        float: left;
+    }
+            
+       #carolyn
+    {
+        float: right;
+        clear: right;
+    }
+    
+    .birthdate
+    {   
+        margin-top:    10px;
+        margin-left:   10px;        
+        margin-right:  10px;
+        float:         left;
+    }
+    
+    .deathdate
+    {
+        margin-top:    10px;
+        margin-left:   10px;
+        margin-right:  10px;
+        float:         right;
+
+    }
+ 
+    #mother
+    {
+       border-radius: 50%;
+    } 
+ 	</style>
+</head>
+
+<body>
+<div class="container-fluid" id="body">
+
+		<div class="row1">
+        <header class="col-12 col-s-12">
+				<h1><strong><i>Gertrude Scott's Family Tree</i></strong></h1> </header>
+		</div>
+<!------------------------>    
+		<div class="row2">
+        <div class="col-3" id="catherine">     
+        <div class="caption clearfix">
+        <span class="birthdate text-on-background-2"></span>
+        <span class="deathdate text-on-background-2"></span>
+            <h2 class="icon-roll"><strong>Catherine</strong><span></span></h2>
+        </div>
+        <div id="catherine-bg-image" class="body">
+            <table>
+                <tr>
+                  <td>
+                    <div class="tooltip"><span class="text-on-background-1"><strong>Son</strong></span> - Richard Richardson</div>
+                  </td>
+                  <td>
+                    <ol>
+                      <li>Child</li>
+                      <li>Child</li>
+                      <li>Child</li>
+                    </ol>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="tooltip"><span class="text-on-background-1"><strong>Daughter</strong></span> - Katrina Richardson</div>
+                  </td>
+                  <td>
+                    <ol>
+                      <li>Latonya</li>
+                      <li>Joyce</li>
+                      <li>Junior</li>
+                    </ol>
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td>
+                    <div class="tooltip"><span class="text-on-background-1"><strong>Son</strong></span> - Steven Richardson</div>
+                  </td>
+                  <td>
+                    <ol>
+                      <li>Ashley</li>
+                      <li>Child</li>
+                      <li>Child</li>
+                    </ol>
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td>
+                    <div class="tooltip"><span class="text-on-background-1"><strong>Son</strong></span> - Federick Gearing</div>
+                  </td>
+                  <td>
+                    <ol>
+                      <li>Child</li>
+                      <li>Child</li>
+                      <li>Child</li>
+                    </ol>
+                  </td>
+                </tr>                
+            </table>
+          </div>
+        </div>
+        </div> 
+<!------------------------> 
+        <div class="row2">
+        <div class="col-3" id="gregory">     
+        <div class="caption clearfix">
+        <span class="birthdate text-on-background-2"></span>
+        <span class="deathdate text-on-background-2"></span>
+            <h2 class="icon-roll"><strong>Gregory</strong><span></span></h2>
+        </div>
+        <div id="gregory-bg-image" class="body">
+            <table>
+                <tr>
+                  <td>
+                    <div class="tooltip"><span class="text-on-background-1"><strong>Daughter</strong></span> - Latasha</div>
+                  </td>
+                  <td>
+                    <ol>
+                      <li>Donald Junior</li>
+                      <li>Sheldon</li>
+                    </ol>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="tooltip"><span class="text-on-background-1"><strong>Daughter</strong></span> - Tina</div>
+                  </td>
+                  <td>
+                    <ol>
+                      <li>Daraven</li>
+                      <li>Zaria</li>
+                      <li>Steven</li>
+                      <li>Syniah</li>
+                    </ol>
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td>
+                    <div class="tooltip"><span class="text-on-background-1"><strong>Son</strong></span> - Gregory Junior</div>
+                  </td>
+                  <td>
+                    <ol>
+                      <li>Nina-Symone</li>
+                      <li>Ava</li>
+
+                    </ol>
+                  </td>
+                </tr>           
+            </table>
+          </div>
+        </div>
+       </div>      
+<!------------------------>          
+        <div class="row2">
+        <div class="col-3" id="peggy">     
+        <div class="caption clearfix">
+          <span class="birthdate text-on-background-2"></span>
+          <span class="deathdate text-on-background-2"></span>
+          <h2 class="icon-roll"><strong>Peggy</strong><span></span></h2>
+        </div>
+        <div id="peggy-bg-image" class="body">
+            <table>
+                <tr>
+                  <td>
+                    <div class="tooltip"><span class="text-on-background-1"><strong>Son</strong></span> - Robert Junior</div>
+                  </td>
+                  <td>
+                    <ol>
+                      <li>Child</li>
+                      <li>Child</li>
+                      <li>Child</li>
+                    </ol>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="tooltip"><span class="text-on-background-1"><strong>Daughter</strong></span> - Benita</div>
+                  </td>
+                  <td>
+                    <ol>
+                      <li>Child</li>
+                      <li>Child</li>
+                      <li>Child</li>
+                    </ol>
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td>
+                    <div class="tooltip"><span class="text-on-background-1"><strong>Son</strong></span> - Daniel</div>
+                  </td>
+                  <td>
+                    <ol>
+                      <li>Child</li>
+                      <li>Child</li>
+                      <li>Child</li>
+                    </ol>
+                  </td>
+                </tr>              
+            </table>
+          </div>
+        </div>
+    </div>      
+<!------------------------>
+        <div class="row2">
+        <div class="col-3" id="anthony">     
+        <div class="caption clearfix">
+        <span class="birthdate text-on-background-2"></span>
+        <span class="deathdate text-on-background-2"></span>
+            <h2 class="icon-roll"><strong>Anthony</strong><span></span></h2>
+        </div>
+        <div id="anthony-bg-image" class="body">
+            <table>
+                <tr>
+                  <td>
+                    <div class="tooltip"><span class="text-on-background-1"><strong>Son</strong></span> - Anthony Junior</div>
+                  </td>
+                  <td>
+                    <ol>
+                      <li>Child</li>
+                      <li>Child</li>
+                      <li>Child</li>
+                    </ol>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="tooltip"><span class="text-on-background-1"><strong>Son</strong></span> - Antwaun</div>
+                  </td>
+                  <td>
+                    <ol>
+                      <li>Child</li>
+                      <li>Child</li>
+                      <li>Child</li>
+                    </ol>
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td>
+                    <div class="tooltip"><span class="text-on-background-1"><strong>Son</strong></span> - Antonio</div>
+                  </td>
+                  <td>
+                    <ol>
+                      <li>Child</li>
+                      <li>Child</li>
+                      <li>Child</li>
+
+                    </ol>
+                  </td>
+                </tr>           
+            </table>
+          </div>
+        </div>
+        </div>             
+<!------------------------>
+      <div class="row2">
+        <div class="col-3" id="butchie">     
+        <div class="caption clearfix">
+        <span class="birthdate text-on-background-2">[1950]</span>
+        <span class="deathdate text-on-background-2">[2013]</span>
+            <h2 class="icon-roll"><strong>Butchie</strong></h2>
+        </div>
+        <div id="butchie-bg-image" class="body">
+            <table>
+                <tr>
+                  <td>
+                    <div class="tooltip"><span class="text-on-background-1"><strong>Son</strong></span> - Lindahl</div>
+                  </td>
+                  <td>
+                    <ol>
+                      <li>Child</li>
+                      <li>Child</li>
+                      <li>Child</li>
+                    </ol>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="tooltip"><span class="text-on-background-1"><strong>Daughter</strong></span> - Lamika</div>
+                  </td>
+                  <td>
+                    <ol>
+                      <li>Child</li>
+                      <li>Child</li>
+                      <li>Child</li>
+                    </ol>
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td>
+                    <div class="tooltip"><span class="text-on-background-1"><strong>Son</strong></span> - Harvey</div>
+                  </td>
+                  <td>
+                    <ol>
+                      <li>Child</li>
+                      <li>Child</li>
+                      <li>Child</li>
+                    </ol>
+                  </td>
+                </tr>           
+            </table>
+          </div>
+        </div>
+        </div>  
+<!------------------------>       
+        <div class="row2">
+        <div class="col-3" id="kathleen">     
+        <div class="caption clearfix">
+            <span class="birthdate text-on-background-2"></span>
+            <span class="deathdate text-on-background-2"></span>
+            <h2 class="icon-roll"><strong>Kathleen</strong><span></span></h2>
+        </div>
+        <div id="kathleen-bg-image" class="body">
+            <table>
+                <tr>
+                  <td>
+                    <div class="tooltip"><span class="text-on-background-1"><strong>Daughter</strong></span> - Shalena</div>
+                  </td>
+                  <td>
+                    <ol>
+                      <li>Chrishaun</li>
+                    </ol>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="tooltip"><span class="text-on-background-1"><strong>Daughter</strong></span> - Angel</div>
+                  </td>
+                  <td>
+                    <ol>
+                      <li>Child</li>
+                      <li>Child</li>
+                      <li>Child</li>
+                    </ol>
+                  </td>
+                </tr>
+                 <tr>
+                  <td>
+                    <div class="tooltip"><span class="text-on-background-1"><strong></strong></span> - </div>
+                  </td>
+                  <td>
+                    <ol>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                    </ol>
+                  </td>
+                </tr>               
+
+            </table>
+          </div>
+        </div>
+      </div>
+<!------------------------>
+        <div class="row2">
+        <div class="col-3" id="mary">     
+        <div class="caption clearfix">
+            <h2 class="icon-roll"><strong>Mary</strong><span></span></h2>
+            <span class="birthdate text-on-background-2"></span>
+            <span class="deathdate text-on-background-2"></span>
+        </div>
+        <div id="mary-bg-image" class="body">
+            <table>
+                <tr>
+                  <td>
+                    <div class="tooltip"><span class="text-on-background-1"><strong>Daughter</strong></span> - Theresa</div>
+                  </td>
+                  <td>
+                    <ol>
+                      <li>Child</li>
+                      <li>Child</li>
+                      <li>Child</li>
+                    </ol>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="tooltip"><span class="text-on-background-1"><strong>Son</strong></span> - James</div>
+                  </td>
+                  <td>
+                    <ol>
+                      <li>Child</li>
+                      <li>Child</li>
+                      <li>Child</li>
+                    </ol>
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td>
+                    <div class="tooltip"><span class="text-on-background-1"><strong>Daughter</strong></span> - Penney</div>
+                  </td>
+                  <td>
+                    <ol>
+                      <li>Child</li>
+                      <li>Child</li>
+                      <li>Child</li>
+                    </ol>
+                  </td>
+                </tr>           
+            </table>
+          </div>
+        </div>
+<!------------------------>
+       <div class="row2">
+        <div class="col-3" id="laura">     
+        <div class="caption clearfix">
+            <span class="birthdate text-on-background-2"></span>
+            <span class="deathdate text-on-background-2"></span>
+            <h2 class="icon-roll"><strong>Laura</strong><span></span></h2>
+        </div>
+        <div id="laura-bg-image" class="body">
+            <table>
+                <tr>
+                  <td>
+                    <div class="tooltip"><span class="text-on-background-1"><strong>Son</strong></span> - Antonio Perez</div>
+                  </td>
+                  <td>
+                    <ol>
+                      <li>Child</li>
+                      <li>Child</li>
+                      <li>Child</li>
+                    </ol>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="tooltip"><span class="text-on-background-1"><strong>Daughter</strong></span> - Nichole</div>
+                  </td>
+                  <td>
+                    <ol>
+                      <li>Child</li>
+                      <li>Child</li>
+                      <li>Child</li>
+                    </ol>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="tooltip"><span class="text-on-background-1"><strong></strong></span></div>
+                  </td>
+                  <td>
+                    <ol>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                    </ol>
+                  </td>
+                </tr>                
+
+            </table>
+          </div>
+        </div>
+      </div>
+<!------------------------>                
+       <div class="row2">
+        <div class="col-3" id="larry">     
+        <div class="caption clearfix">
+        <span class="birthdate text-on-background-2">[1953]</span>
+        <span class="deathdate text-on-background-2">[1974]</span>
+            <h2 class="icon-roll"><strong>Larry</strong></h2>
+        </div>
+        <div id="larry-bg-image" class="body">
+            <table>
+                <tr>
+                  <td>
+                    <div class="tooltip"><span class="text-on-background-1"><strong>Son</strong></span> - Timothy</div>
+                  </td>
+                  <td>
+                    <ol>
+                      <li>Child</li>
+                      <li>Child</li>
+                      <li>Child</li>
+                    </ol>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="tooltip"><span class="text-on-background-1"><strong></strong></span></div>
+                  </td>
+                  <td>
+                    <ol>
+                      <li>Child</li>
+                      <li>Child</li>
+                      <li>Child</li>
+                    </ol>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="tooltip"><span class="text-on-background-1"><strong></strong></span></div>
+                  </td>
+                  <td>
+                    <ol>
+                      <li>Child</li>
+                      <li>Child</li>
+                      <li>Child</li>
+                    </ol>
+                  </td>
+                </tr>                       
+            </table>
+          </div>
+        </div>
+      </div>
+<!------------------------>                 
+        <div class="row2">
+        <div class="col-3" id="carolyn">     
+        <div class="caption clearfix">
+            <span class="birthdate text-on-background-2"></span>
+            <span class="deathdate text-on-background-2"></span>
+            <h2 class="icon-roll"><strong>Carolyn</strong><span></span></h2>
+        </div>
+        <div id="carolyn-bg-image" class="body">
+            <table>
+                <tr>
+                  <td>
+                    <div class="tooltip"><span class="text-on-background-1"><strong>Son</strong></span> - Daryl Junior</div>
+                  </td>
+                  <td>
+                    <ol>
+                      <li>Child</li>
+                      <li>Child</li>
+                      <li>Child</li>
+                    </ol>
+                  </td>
+                  </tr>
+                
+                <tr>
+                  <td>
+                    <div class="tooltip"><span class="text-on-background-1"><strong>Daughter</strong></span> - Tiffany</div>
+                  </td>
+                  <td>
+                    <ol>
+                      <li>Child</li>
+                      <li>Child</li>
+                      <li>Child</li>
+                    </ol>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="tooltip"><span class="text-on-background-1"><strong>Son</strong></span> - Christopher</div>
+                  </td>
+                  <td>
+                    <ol>
+                      <li>Child</li>
+                      <li>Child</li>
+                      <li>Child</li>
+                    </ol>
+                  </td>
+                </tr>
+
+            </table>
+          </div>
+        </div>             
+    </div>
+ <!---------Gertrude------->
+      <div class="col-5 main">
+          <div class="caption">
+              <span class="birthdate text-on-background-2"></span>              
+              <span class="deathdate text-on-background-2"></span>              
+              <h2 class="icon-roll"><strong>Gertrude</strong></h2>
+          </div>   
+          <div class="body">
+              <img id="mother" src="img/marilyn-monroe.jpg" alt="mother">
+          </div>           
+      </div>
+ <!---------Gertrude------->   
+		<div class="row3" >
+        <footer class="col-12">        
+        </footer>  
+		</div>
+<!------------------------>     
+		<div class="row4">
+        <div class="col-12 copyright">
+            <div><p id="copyright-1"></p></div>
+            <div><p id="copyright-2"><strong><mark>All Rights Reserved</mark></strong></p></div>
+        </div>
+    </div>
+<!------------------------>     
+</div> 
+ 
+<script>
+    var d = new Date();
+    var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    document.getElementById("copyright-1").innerHTML = "<strong><mark>© Copyright " + d.getFullYear() + " Gregory & Christine Scott</mark></strong>.";
+
+    $(document).ready(function() {
+    
+        $("header").toggle(1000);
+        $(".main").toggle(3000);
+        
+        $("#catherine").toggle(1000);
+        $("#gregory").toggle (1000);
+        
+        $("#peggy").toggle (2000);
+        $("#anthony").toggle(2000);
+        
+        $("#butchie").toggle (3000);
+        $("#kathleen").toggle(3000);
+        
+        $("#mary").toggle (4000);
+        $("#laura").toggle(4000);
+        
+        $("#larry").toggle (5000);
+        $("#carolyn").toggle(5000);
+        
+        $("footer").toggle(5000);
+        $("#copyright-1").toggle(5000);
+        $("#copyright-2").toggle(5000);
+        
+        
+        $("button").effect("shake");  
+
+    /*
+        $("#organizers").hover(function() {
+            $("#organizers").effect("shake");
+            }, function() {
+            $("#organizers").effect("shake");
+        });  
+    */
+
+    /*    
+        $("#whenwhere").hover(function() {
+            $("#whenwhere").effect("shake");
+            }, function() {
+            $("#whenwhere").effect("shake");
+        });
+    */
+
+        $("footer").hover(function() {
+            $("#copyright-1").effect("shake");
+            }, function() {
+            $("#copyright-1").effect("shake");
+        });
+
+
+        $("td").hover(function() {
+            $( this ).children("span").addClass   ( "text-on-background-1" );             
+            }, function() {
+            $( this ).children("span").removeClass   ( "text-on-background-1" );
+        });
+        
+        
+/*        
+        $('.body').hide();
+        $('.body5').hide();
+        $('.body12').hide();
+*/
+       
+        $('.icon-roll').click(function() {
+            var $body   = $(this).closest('.col-3').find('.body');
+            var $body5  = $(this).closest('.col-5').find('.body');
+            var $body12 = $(this).closest('.col-12').find('.body');
+            
+            if ($body.is(':hidden')) {
+               $body.show(1500);
+            } else {
+               $body.hide(1500);
+            }
+            
+            if ($body5.is(':hidden')) {
+               $body5.show(1500);
+            } else {
+               $body5.hide(1500);
+            }
+            
+            if ($body12.is(':hidden')) {
+               $body12.show(1500);
+            } else {
+               $body12.hide(1500);
+            }
+                       
+         });
+        
+    });   
+</script>
+</body>
+
+</html>

@@ -1,0 +1,1750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script:400,700|Josefin+Sans:400,700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>Scott Family Tree</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="jquery-plugins/jquery.sticky.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <link rel="stylesheet" href="css/screen.css">
+    <link rel="stylesheet" href="css/colorscheme/white-on-brown.css" id="color-switcher">
+    
+    <style>
+        /*----------*/
+        /*- Button -*/
+        /*----------*/
+        button {
+            background-color:  #f2f2f2;
+            color:             #000000;
+            text-decoration:   underline;
+            box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+        }
+
+            #body,
+            header,
+            [id*="gertrude-sidebar-"],            
+            #catherine,
+            #peggy,
+            #butchie,
+            #mary,
+            #larry,
+            #gregory,
+            #anthony,
+            #kathleen,
+            #laura,
+            #carolyn  {
+                margin:  10px;
+                border: 1px solid black;          
+            }
+             
+           /*--------------------------------------------------------*/
+           /*- Make jQuery Toggle to Fade-in as Opposed to Fade-out -*/
+           /*--------------------------------------------------------*/
+            header,
+            #main,
+            #gertrude-sidebar-1,
+            #gertrude-main-content,
+            #gertrude-sidebar-2,
+            #gertrude-footer-2,
+            
+            #catherine,
+            #catherine-main-content,            
+            #peggy,
+            #peggy-main-content,
+            #butchie,
+            #butchie-main-content,
+            #mary,
+            #mary-main-content,
+            #larry,
+            #larry-main-content,
+            #gregory,
+            #gregory-main-content,    
+            #anthony,
+            #anthony-main-content,
+            #kathleen,
+            #kathleen-main-content, 
+            #laura,
+            #laura-main-content,
+            #carolyn,
+            #carolyn-main-content,
+            
+            footer,
+            #copyright-1,
+            #copyright-2,
+            #email-contact-us,
+            #what-should-i-include,
+            #what-should-i-include-main-content
+            {
+                margin:        auto;
+                margin-top:    10px; 
+                display:       none; 
+            }
+            
+           /*--------------------------------------------------------*/
+           /*-  Align sibling-main-content with top of their photo  -*/
+           /*--------------------------------------------------------*/
+            #catherine-main-content,
+            #peggy-main-content,
+            #butchie-main-content,
+            #mary-main-content,
+            #larry-main-content,
+            #gregory-main-content,    
+            #anthony-main-content,
+            #kathleen-main-content, 
+            #laura-main-content,
+            #carolyn-main-content 
+            {
+                margin-top:    0px; 
+            }
+            
+            #copyright-1,
+            #copyright-2,
+            #email-contact-us
+            {
+                width:  350px;
+                margin: auto;
+                font-size: 12px;
+            }
+            
+            #copyright-1 {
+                box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+            }
+
+            /*---------*/
+            /*- Table -*/
+            /*---------*/
+             table {
+                border-collapse: collapse;
+                width: 100%;
+              }
+
+             table, th, td {
+                  padding-left:     10px;
+                  padding-top:      10px;
+                  padding-right:    10px;
+                  padding-bottom:   0px;                                  
+                  text-align:       left;
+        /*        border:           1px solid #ddd;  */
+              }
+        /*      
+              tr:hover{
+                  background-color:#454545;
+                  color:           #ffffff;
+                  opacity:         1.0;
+              }
+        */         
+         
+            .icon-roll
+            {
+                 cursor: pointer;
+                 font-weight: bold;
+            }
+            
+            .birthdate
+            {   
+                margin-top:    10px;
+                margin-left:   10px;        
+                margin-right:  10px;
+                float:         left;
+            }
+            
+            .deathdate
+            {
+                margin-top:    10px;
+                margin-left:   10px;
+                margin-right:  10px;
+                float:         right;
+
+            }
+         
+            #mother
+            {
+               border-radius: 50%;
+            }
+
+            .is-sticky {
+            }
+
+        .sibling-bg-image {
+        }
+        
+        /*----------------------------------------------------------*/
+        /*- (1) Dancing Scripts Bold and Josefin (Sans-Serif) Thin -*/ 
+        /*----------------------------------------------------------*/
+
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-weight: 700;
+            line-height: 46px;
+            font-size:   42px;
+            }
+        h2 {
+            font-family: 'Josefin Sans', sans-serif;
+            font-weight: 400;
+            text-transform: capitalize;
+            font-size: 18px;
+            line-height: 23px;
+            letter-spacing: 2px;
+            }
+        p, li {
+            font-family: 'Josefin Sans', sans-serif;
+            font-weight: 400;
+            font-size: 17px;
+            line-height: 23px; 
+            }
+
+        #available-colors {
+            float: left;
+            text-align:         center;
+            margin: 5px;
+            text-align: left;
+            list-style-type: none;
+            border: 1px solid black;
+        }
+        .white-on-brown {
+            float: left;
+            background-color:   #A0522D;
+            color:              #F5F5F5;
+            text-align:         center;
+            margin: 5px;
+            text-align: left;
+            cursor: pointer;
+            list-style-type: none;
+            border: 1px solid black;
+            box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+        }
+
+        .white-on-red   {
+            float: left;
+            background-color:   #cc0000; 
+            color:              #ffffff;
+            text-align:         center;
+            margin: 5px;
+            text-align: left;
+            cursor: pointer;
+            list-style-type: none;
+            border: 1px solid black;
+            box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+        }
+        .black-on-pink  {
+            float: left;
+            background-color:   #ffb3b3; 
+            color:              #000000;
+            text-align:         center;
+            margin: 5px;
+            text-align: left;
+            cursor: pointer;
+            list-style-type: none;
+            border: 1px solid black;
+            box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+        }
+        .brown-on-tan   {
+            float: left;
+            background-color:   #cdab7e;  
+            color:              #000000;
+            text-align:         center;
+            margin: 5px;
+            text-align: left;
+            cursor: pointer;
+            list-style-type: none;
+            border: 1px solid black;
+            box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+        }
+        
+        .toggle-all-children   {
+            float: left;
+            background-color:   #454545;
+            color:              #ffffff;
+            text-align:         center;
+            margin: 5px;
+            text-align: left;
+            cursor: pointer;
+            list-style-type: none;
+            border: 1px solid black;  
+            box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+        }
+        
+        .row1 {
+            margin-top: 10px;
+            clear: both;
+        }
+        
+        #gertrude-footer-1 {
+            clear:        both;
+            background-color: #e9e9e9;
+        }
+
+
+        #gertrude-footer-2 {
+            margin-top:   10px;
+            border:       1px solid black;
+        }
+        #gertrude-age {
+            text-transform:   lowercase;
+        }
+        .life-story-banner   {
+            font-size:        20px;
+        }
+        
+        #sam-deep-book-yes-you-can
+        {
+            background-color: #e9e9e9;
+        }
+        
+        #what-should-i-include-main-content {
+        
+            margin:    auto;
+        }
+        
+        #what-should-i-include-readmore {
+            display: none;
+        }
+        
+        #what-should-i-include-readless {
+            display: inline;
+        }
+        
+        .readmorebtn
+        {
+             margin:   10px;
+             cursor: pointer;
+             font-weight: bold;
+        }
+        
+        .display-none
+        {
+             display:   none;
+        }
+        
+        .display-inline
+        {
+             display:   inline;
+        }
+        
+        .visibility-hidden
+        {
+             visibility:   hidden;
+        }        
+        
+        /*------------------*/
+        /*- unvisited link -*/
+        /*------------------*/
+        a:link {
+          text-decoration:  underline;
+          color: #000000;
+        }
+        /*---------------*/
+        /* visited link -*/
+        /*---------------*/
+        a:visited {
+          text-decoration:  underline;
+          color: #000000;
+        }
+        /*------------------*/
+        /* mouse over link -*/
+        /*------------------*/
+        a:hover {
+          text-decoration:  underline;
+          color: #f5f5f5;
+          background-color: #a50000;
+        }
+        /*-----------------*/
+        /*- selected link -*/
+        /*-----------------*/
+        a:active {
+          text-decoration:  underline;
+          color: blue
+          
+        }
+        #sticker {
+            padding-left:   0px;
+        }
+        .strikeout {
+            text-decoration:          line-through;
+            text-decoration-style:    double;
+            text-decoration-color:    #ffffff;
+        }
+        figcaption {
+            width:        150px;
+            text-align:   left;
+        }    
+        .family-history-photos  {
+            border:       1px solid black;
+        }
+        
+        #scott-family-carousel  {
+            margin:      auto;
+            float:       none;
+        }
+        
+        li {
+            line-height:    18px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container-fluid" id="body">
+
+    <div id="color-schemes">
+        <ul id="sticker">
+            <li class="white-on-brown"  data-path="css/colorscheme/white-on-brown.css">Text</li>            
+            <li class="white-on-red"    data-path="css/colorscheme/white-on-red.css">Text</li>
+            <li class="black-on-pink"   data-path="css/colorscheme/black-on-pink.css">Text</li>
+            <li class="brown-on-tan"    data-path="css/colorscheme/brown-on-tan.css">Text</li>
+            <li class="toggle-all-children">&nbsp;-/+&nbsp;</li>                      
+        </ul>
+    </div>
+    
+<!------------------------>
+    <div class="row1">
+<!------------------------>
+        <header class="col-12 col-s-12">
+            <h1><strong>Scott Family Tree</strong></h1>
+        </header>
+		</div>
+<!---------------------------------------->
+    <div class="row2" id="root-section">
+<!---------------------------------------->
+
+        <div class="col-3" id="gertrude-sidebar-1">
+        
+            <div id="gertrude-sidebar-1-title">
+                <h2>From Macon, Georgia . . .</h2>
+            </div>
+            
+            <p>The "Scott Family Tree" began when Helen Gertrude Johnson was born <strong> September 08, 1928</strong>,  in <span class="georgia-state-color">Macon, Georgia</span>, to Bennie and Maime Johnson. &nbsp;Gertrude was the younger of Bennie and Maime's <span class="text-on-background-3">two</span> children.</p>
+
+            <p>Gertrude's parents, Bennie and Maime, passed away while Gertrude and her sister <strong>Mary Alice</strong> were young children.  As a consequence, Gertrude and Mary Alice were raised by their mother's sisters and brothers. &nbsp;Gertrude by her Aunt Dorothy and Aunt Lee Lee.  And Mary Alice, by her Uncle Bubba Lee.</p>        
+
+            <p>After graduating grammar school, Gertrude decided to forego high school, to began earning a living cleaning houses and picking cotton in nearby <span class="georgia-state-color">Thomson, Georgia</span>.</p>
+            
+            <p>When Gertrude became of age, she married <strong>Charles Coleman Scott</strong>, taking on his surname and becoming Helen Gertrude Scott.  Gertrude and Charles Coleman would go on to have six children together: <strong>Catherine</strong>, <strong>Peggy Ann</strong>, <strong>Charles C. Scott Jr</strong> known as "Butchie", <strong>Mary Jane</strong>, <strong>Larry James</strong> and <strong>Gregory</strong>.</p>
+
+            <p>In <strong>1958</strong>, after deciding they had had enough, Gertrude and Charles Coleman separated.  Gertrude and her six children migrating north from <span class="georgia-state-color">Macon, Georgia</span> to <span class="illinois-state-color">Chicago, Illinois.</span> And Charles Coleman staying behind in Macon.
+            
+        </div>
+
+        <div class="col-6 main" id="gertrude-main-content" >
+        
+            <div class="caption">
+                <span class="birthdate birth-death-date-color">1928</span>              
+                <span class="deathdate birth-death-date-color">2004</span>
+                <div class="gertrude-main-content-titles">            
+                    <h2><strong>Gertrude's</strong></h2>
+                </div>
+            </div>
+            
+            <div class="body">
+                <img id="mother" src="img/mother-gertrude-scott.jpg" alt="mother">
+                <div class="gertrude-main-content-titles">            
+                    <h2><strong>Journey</strong></h2>
+                </div>
+            </div>
+            
+        </div>    
+
+        <div class="col-3" id="gertrude-sidebar-2">
+        
+            <div id="gertrude-sidebar-2-title">
+                <h2>To Chicago, Illinois . . .</h2>
+            </div>
+            
+            <p>In Chicago, Illinois Gertrude's family would grow.  She would meet <strong>William G. Marshall</strong> and over the years, the two of them would have three children together: <strong>Anthony</strong>, <strong>Kathleen</strong> and <strong>Laura Ann</strong>.</p>
+            
+            <p>As time went by, Mr. Marshall would pass away, and Gertrude would meet <strong>Herbert Harris</strong>, and the two of them would have one child, <strong>Carolyn</strong>.</p>
+            
+            <p>Gertrude's family totaled ten children in all and she would go on to become a grandmother and great grandmother many times over.</p>
+            
+            <p>Gertrude became a member of <strong>Christ Deliverance Center</strong> Pentecostal Baptist Church. &nbsp;As a member of <strong>CDC</strong>, Gertrude instilled strong morals and values into her children and taught her family about "Jesus Christ".</p>
+
+            <p>Gertrude, personally, taught Bible Study classes to her family and told all who would listen about "Jesus Christ".</p>
+                 
+            <p>Looking back, Gertrude realized she had unfinished business to attend to. Having foregone high school to start earning a living, she had not earned her high school diploma years ago, while in <span class="georgia-state-color">Macon, Georgia</span>.</p>
+                   
+            <p>To remedy this, Gertrude attended classes, studied hard and earned her high school diploma.</p>
+     
+        </div>
+    </div>
+<!------------------------>
+		<div class="row3">
+<!------------------------>    
+        <div class="col-12" id="gertrude-footer-1">
+         
+           <p><strong>Gertrude</strong> passed away <strong>June 05, 2004</strong> in <span class="illinois-state-color">Chicago, Illinois</span> age <span id="gertrude-age"></span>. &nbsp;She <span class="text-on-background-3">left</span> her spirits of goodwill, kindness, thoughtfulness, and doing unto others, as she would have others, do unto her--as a guiding light to all who knew her. <sub><mark>1</mark></sub></p>
+
+           <p><small><mark>1</mark> Gertrude's sister, <strong>Mary Alice</strong>, preceeded her in death, passing away in <span class="georgia-state-color">Atlanta, Georgia</span> on <strong>November 11, 1998</strong>.</small></p>       
+        </div>
+    </div>
+
+<!------------------------>
+		<div class="row4">
+<!------------------------>
+
+        <div class="col-12" id="gertrude-footer-2">
+        
+           <h2 id="life-story-banner"><strong>We Must Write . . .</strong></h2>
+           
+            <p><strong>It's True . . .</strong><br><br>Our mother Gertrude's legacy lives on in each of us. We have fond memories of how she raised not only us, but our children too.<br><br>Our family history is precious and we should cherish and preserve it. Not just for now, but for generations to come! In the <strong>olden days</strong>, families preserved their history by saving photographs, for years, in dresser drawers and shoeboxes. &nbsp;&nbsp;<br><br>Today, almost everyone has a smart phone, which facilitates easy sharing of <strong><i>digital media</i></strong> (text, audio, video, and photos) over the internet.</P> 
+
+ <!------------------------------------>
+    <div id="scott-family-carousel">
+ <!------------------------------------>
+    
+        <div class="family-history-photos">
+          <h2><strong>"We Are Family . . ."</strong></h2>
+        </div>
+            
+        <div id="myCarousel" class=" family-history-photos carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+              <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+              <li data-target="#myCarousel" data-slide-to="1"></li>
+              <li data-target="#myCarousel" data-slide-to="2"></li>
+              <li data-target="#myCarousel" data-slide-to="3"></li>
+              <li data-target="#myCarousel" data-slide-to="4"></li>                            
+              <li data-target="#myCarousel" data-slide-to="5"></li>                            
+            </ol>
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+
+                <div class="item active">
+                  <img src="img/bouquet-of-love.jpg" alt="Bouquet of Love" style="width:100%;">
+                  <div class="carousel-caption">
+                  </div>
+                </div>
+
+                <div class="item">
+                  <img src="img/scott-girls-show-hands.jpg" alt="Girls Show Hands" style="width:100%;">
+                  <div class="carousel-caption">
+                  </div>
+                </div>
+              
+
+                <div class="item">
+                  <img src="img/scott-girls-in-jamaica-1.jpg" alt="Girls in Jamaica-1" style="width:100%;">
+                  <div class="carousel-caption">
+                  </div>
+                </div>              
+                
+                <div class="item">
+                  <img src="img/scott-girls-in-jamaica-2.jpg" alt="Girls in Jamaica-2" style="width:100%;">
+                  <div class="carousel-caption">
+                  </div>
+                </div>              
+                
+
+                <div class="item">
+                  <img src="img/anthony-and-family.jpg" alt="Anthony's Family" style="width:100%;">
+                  <div class="carousel-caption">
+                  </div>
+                </div>
+                
+                <div class="item">
+                  <img src="img/three-amigos-cancun-mexico.jpg" alt="Gregory's Family" style="width:100%;">
+                  <div class="carousel-caption">
+                  </div>
+                </div>
+              
+            </div>
+
+            <!-- Left and right controls -->
+            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+              <span class="glyphicon glyphicon-chevron-left"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            
+            <a class="right carousel-control" href="#myCarousel" data-slide="next">
+              <span class="glyphicon glyphicon-chevron-right"></span>
+              <span class="sr-only">Next</span>
+            </a>
+        </div>   
+    </div>
+<!------------------------------------>
+<!------------------------------------>
+<!------------------------------------>
+            
+            <p><strong>A Call to Action . . .</strong><br><br>Let us use today's technology to document and preserve our family history.  I have written introductory paragraphs of <strong>"life and times"</strong> stories for our mother Gertrude's <strong>1st generation</strong> children.<br><br>I'm calling upon remaining 1st generation children to provide me with web content to complete their life stories.</p>
+             
+            <ol>
+                <li><span class="text-on-background-4">Catherine</span></li>
+                <li><span class="text-on-background-4">Peggy Ann</span></li>
+                <li><span class="text-on-background-3"><span class="strikeout">Charles Coleman Jr</span></span></li>
+                <li><span class="text-on-background-4">Mary Jane</span></li>
+                <li><span class="text-on-background-3"><span class="strikeout">Larry James</span></span></li>
+                <li><span class="text-on-background-4">Gregory</span></li>
+                <li><span class="text-on-background-4">Anthony</span></li>
+                <li><span class="text-on-background-4">Kathleen</span></li>
+                <li><span class="text-on-background-4">Laura Ann</span></li>
+                <li><span class="text-on-background-4">Carolyn</span></li>
+            </ol>
+               
+            <p><strong>As You Write Your Life Story . . .</strong><br><br>Think of your life as roll of undeveloped film.  Some pictures will come out good, some not so good, and some bad. Portions of film not yet exposed are future life events that have not happened yet.<br><br>As much as we would like to, we cannot change <strong><i>"not so good"</i></strong> and <strong><i>"bad"</i></strong> life events, but we can take steps to ensure they don't happen again".&nbsp;<sub><mark>2</mark></sub></p>
+            
+            <p>As we write our life stories, let us focus on <strong>positive</strong> happenings, and accomplishesments . . . not unplesant ones. </p>
+            
+            <div id="sam-deep-book-yes-you-can">       
+                 <p><small><mark>2</mark> From <strong>Sam Deep's</strong> best Selling book <strong>"Yes, You, Can" . . .</strong></small></p>
+            </div>
+        </div>
+    </div>   
+<!------------------------>
+		<div class="row5">
+<!------------------------>
+        <div class="col-11" id="What-should-i-include"> 
+            <div class="caption clearfix">
+                <span class="birthdate birth-death-date-color"></span>
+                <span class="deathdate birth-death-date-color"></span>
+                <p><strong>What Should You Include in Your Life Story?</strong><span></span></p>
+            </div>
+        </div> 
+    
+        <div class="body">
+          
+            <div class="col-12 sibling-bg-image" id="what-should-i-include-main-content">
+
+                <p>The <strong>great news</strong> is <strong>you</strong> are the <strong>author</strong> of your "life story". So, what is included—and what is not included—is up to your sole discretion. If there are events and people you’d rather not write about, then you are completely free to leave them out.<br><br>To get us started, I put together a list of common <strong>topics</strong> often included in "life story" outlines:</p>    
+
+                <span id="what-should-i-include-readmore">
+                    <ol>
+                        <li>Background of mother and father <strong><mark>(pre-written for everyone . . .)</mark></strong></li>
+                        <li>When/where you were born</li>
+                        <li>Childhood years</li>
+                        <li>Childhood friends</li>
+                        <li>Grammar School</li>
+                        <li>Teenage years</li>
+                        <li>Teenage Friends</li>
+                        <li>High School</li>
+                        <li>Young adult years</li>
+                        <li>Young adult friends</li>
+                        <li>College</li>
+                        <li>Family traditions</li>
+                        <li>Education</li>
+                        <li>Work experience/career</li>
+                        <li>Hobbies/interests</li>
+                        <li class="display-none">Entertainment</li>
+                        <li>Family members and relationships</li>
+                        <li class="display-none">Hopes for the future</li>
+                        <li class="display-none">Local, regional, national, and world events</li>
+                        <li>Marriage/romantic relationships</li>
+                        <li>Children</li>
+                        <li>Grandchildren</li>
+                        <li>Life lessons</li>
+                        <li class="display-none">Family tree</li>
+                        <li class="display-none">Special occasions</li>
+                        <li>Retirement</li>
+                        <li>Places traveled</li>
+                        <li class="display-none">Traditions</li>
+                        <li>Awards/honors</li>
+                        <li>Spirituality</li>
+                        <li class="display-none">Medical history</li>
+                        <li>Military</li>
+                        <li class="display-none">And much more!</li>
+                    </ol>
+                </span>
+                <button id="readmorebtn" class="readmorebtn text-on-background-1">Show List</button>
+            
+            </div> 
+       </div>
+    </div>
+
+<!------------------------>
+		<div class="row6">
+<!------------------------>    
+        <p><strong>Why Write Your Life Story?</strong><br><br>Writing your "life and times" story ensures, that when your time comes, your "life story" will be told how you want, and not how someone else envisions it.  Your memories will live on!</p>
+           
+        <p><strong>Helpful Links:</strong></p>
+        
+        <ol>
+            <li><a href="https://www.lastly.com/blog/guide-to-writing-your-autobiography"  target="_blank">Guide to Writting Your Autobiograph</a></li>
+        </ol>
+    </div>       
+
+<!------------------------>
+<!------------------------>
+		<div class="row7">
+<!------------------------>
+<!------------------------>
+
+    <div class="col-4" id="catherine"> 
+        <div class="caption clearfix">
+            <span class="birthdate birth-death-date-color"></span>
+            <span class="deathdate birth-death-date-color"></span>
+            <h2 class="icon-roll"><strong>Catherine</strong><span></span></h2>
+        </div>
+    </div> 
+
+    <div class="body">
+    
+        <div  class="col-4 sibling-bg-image" id="catherine-bg-image">
+             <div class="descendant">
+             
+                  <div class="descendant-children">
+                      <table>
+                          <tr>
+                              <td>                   
+                                  <div class="descendant-photo">
+                                      <figure>
+                                          <img src="img/rickey.jpg" alt="Rickey picture">
+                                          <figcaption><span class="text-on-background-1">Richard</span></figcaption> 
+                                      </figure>
+                                  </div>
+                                  <br>
+                                  <br>
+                                  <br>
+                                  <ol class="descendant-grandchildren">
+                                      <li><span class="text-on-background-2">xxxxxxxx</span></li>
+                                      <li><span class="text-on-background-2">xxxxxxxx</span></li>                                   
+                                  </ol>
+                              </td>
+    
+                              <td>
+                              </td>
+                          </tr>
+                      </table>
+                  </div>  
+                       
+                  <div class="descendant-children">
+                      <table>
+                          <tr>
+                              <td>
+                                  <div class="descendant-photo">
+                                      <figure>
+                                          <img src="img/katrina.jpg" alt="Katrina Picture">
+                                          <figcaption><span class="text-on-background-1">Katrina</span></figcaption> 
+                                      </figure>
+                                  </div>
+                                  <br>
+                                  <br>
+                                  <br>
+                                  <ol class="descendant-grandchildren">
+                                      <li><span class="text-on-background-2">Latonya</span></li>
+                                      <li><span class="text-on-background-2">Joyce</span></li>
+                                      <li><span class="text-on-background-2">Corniesha</span></li>
+                                      <li><span class="text-on-background-2">Junior</span></li>                  
+                                  </ol>
+                              </td>
+                              
+                              <td>
+                              </td>
+                          </tr>
+                      </table>
+                  </div>  
+
+                  <div class="descendant-children">
+                      <table>
+                          <tr>
+                              <td>
+                                  <div class="descendant-photo">
+                                      <figure>
+                                          <img src="img/stevie.jpg">
+                                          <figcaption><span class="text-on-background-1">Stevie</span></figcaption> 
+                                      </figure>
+                                  </div>
+                                  <br>
+                                  <br>
+                                  <br>
+                                  <ol class="descendant-grandchildren">
+                                      <li><span class="text-on-background-2">Ashley</span></li>
+                                      <li><span class="text-on-background-2">xxxxxxxx</span></li>                                       
+                                  </ol>
+                              </td>
+                              
+                              <td>
+                              </td>
+                          </tr>
+                      </table>
+                  </div>
+
+                  <div class="descendant-children">
+                      <table>
+                          <tr>
+                              <td>
+                                  <div class="descendant-photo">
+                                      <figure>
+                                          <figcaption> <span class="text-on-background-1">Fredrick</span></figcaption> 
+                                      </figure>
+                                  </div>
+                                  <br>
+                                  <br>
+                                  <br>
+                                  <ol class="descendant-grandchildren">
+                                      <li><span class="text-on-background-2">xxxxxxxx</span></li>
+                                      <li><span class="text-on-background-2">xxxxxxxx</span></li>                                  
+                                  </ol>                                  
+                              </td>
+                              
+                              <td>
+                              </td>
+                          </tr>
+                      </table>
+                  </div>                 
+              </div>      
+        </div> 
+
+        <div class="col-8 sibling-main-content" id="catherine-main-content">
+            <p>Age: <span id="catherine-age"></span></p>
+            <p>Born: <strong>January 15, 1946</strong> , <span class="georgia-state-color">Macon, Georgia</span><span class="display-none"><br>XXXX: <strong>xxxxx 99, 9999</strong>, <span class="illinois-state-color">Chicago, Illinois</span></span></p>
+            
+            <p>Catherine is our mother Gertrude's <span class="text-on-background-3">first</span> born child.  A strong performer, Catherine became the <strong>Medical Professional</strong> of the Scott family . . .</p>
+        </div>
+    </div>    
+</div>
+
+<!------------------------>
+		<div class="row8">
+<!------------------------>
+    <div class="col-4" id="peggy">
+    
+        <div class="caption clearfix">
+            <span class="birthdate birth-death-date-color"></span>
+            <span class="deathdate birth-death-date-color"></span>
+            <h2 class="icon-roll"><strong>Peggy Ann</strong><span></span></h2>
+        </div>
+    </div>
+    
+    <div class="body">
+    
+        <div class="col-4 sibling-bg-image" id="peggy-bg-image">
+           <div class="descendant">         
+                <div class="descendant-children">
+                    <table>
+                        <tr>
+                            <td>
+                                <div class="descendant-photo">
+                                    <figure>
+                                        <img src="img/robert-jr.jpg" alt="Robert Jr Picture">
+                                        <figcaption><span class="text-on-background-1">Robert Jr</span></figcaption> 
+                                    </figure>
+                                </div>
+                                <br>
+                                <br>
+                                <br>
+                                <ol class="descendant-grandchildren visibility-hidden">
+                                    <li><span class="text-on-background-2">xxxxxxxx</span></li>
+                                </ol>
+                            </td>
+                            
+                            <td>
+                            </td>
+                        </tr>
+                    </table>
+                </div>  
+                     
+                <div class="descendant-children">
+                    <table>
+                        <tr>
+                            <td>
+                                <div class="descendant-photo">
+                                    <figure>
+                                        <img src="img/benita.jpg" alt="Benita Picture">
+                                        <figcaption><span class="text-on-background-1">Benita</span></figcaption> 
+                                    </figure>
+                                </div>
+                                <br>
+                                <br>
+                                <br>
+                                <ol class="descendant-grandchildren">
+                                    <li><span class="text-on-background-2">Deandra</span></li>
+                                    <li><span class="text-on-background-2">Dominique</span></li>                                  
+                                </ol>
+                            </td>
+                            
+                            <td>
+                            </td>
+                        </tr>
+                    </table>
+                </div>  
+
+                <div class="descendant-children">
+                    <table>
+                        <tr>
+                            <td>
+                                <div class="descendant-photo">
+                                    <figure>
+                                        <img src="img/daniel.jpg" alt="Dainel Picture">
+                                        <figcaption><span class="text-on-background-1">Daniel</span></figcaption> 
+                                    </figure>
+                                </div>
+                                <br>
+                                <br>
+                                <br>
+                                <ol class="descendant-grandchildren">
+                                    <li><span class="text-on-background-2">Devin</span></li>
+                                </ol>
+                            </td>
+                            
+                            <td>
+                            </td>
+                        </tr>
+                    </table>
+                </div>                 
+            </div>
+        </div>
+        
+        <div class="col-8 sibling-main-content" id="peggy-main-content">
+            <p>Age: <span id="peggy-age"></span></p>
+            <p>Born: <strong>January 06, 1948</strong>, <span class="georgia-state-color">Macon, Georgia</span><span class="display-none"><br>XXXX: <strong>xxxxx 99, 9999</strong>, <span class="illinois-state-color">Chicago, Illinois</span></span></p>
+            
+            <p>Peggy is our mother Gertrude's <span class="text-on-background-3">second</span> born child.  A determined individual, Peggy became the <strong>Office Professional</strong> of the Scott family . . .</p>
+        </div>
+    </div>    
+</div>
+
+<!------------------------>                   
+    <div class="row9"> 
+<!------------------------>                  
+    <div class="col-4" id="butchie">
+    
+        <div class="caption clearfix">
+            <span class="birthdate birth-death-date-color">1950</span>
+            <span class="deathdate birth-death-date-color">2013</span>
+            <h2 class="icon-roll"><strong>Charles C. Scott Jr.</strong></h2>
+        </div>
+    </div>
+
+    <div class="body">
+    
+    <div class="col-4 sibling-bg-image" id="butchie-bg-image">
+        <div class="descendant">
+
+            <div class="descendant-children">
+                <table>
+                    <tr>
+                        <td>
+                            <div class="descendant-photo">
+                                <figure>
+                                    <img src="img/lindahl.jpg" alt="Lindahl picture">
+                                    <figcaption><span class="text-on-background-1">Charles L.</span></figcaption> 
+                                </figure>
+                            </div>
+                            <br>
+                            <br>
+                            <br>
+                            <ol class="descendant-grandchildren">
+                                <li><span class="text-on-background-2">xxxxxxxx</span></li>
+                                <li><span class="text-on-background-2">xxxxxxxx</span></li>
+                                <li><span class="text-on-background-2">xxxxxxxx</span></li>                                        
+                            </ol>    
+                        </td>
+                        
+                        <td>
+                        </td>
+                    </tr>
+                </table>
+            </div>  
+                 
+            <div class="descendant-children">
+                <table>
+                    <tr>
+                        <td>
+                            <div class="descendant-photo">
+                                <figure>
+                                    <img src="img/lamika.jpg" alt="Lamika picture">
+                                    <figcaption><span class="text-on-background-1">Lamika</span></figcaption> 
+                                </figure>
+                            </div>
+                            <br>
+                            <br>
+                            <br>
+                            <ol class="descendant-grandchildren">
+                                <li><span class="text-on-background-2">xxxxxxxx</span></li>
+                                <li><span class="text-on-background-2">xxxxxxxx</span></li>
+                                <li><span class="text-on-background-2">xxxxxxxx</span></li>
+                                                                    
+                            </ol>
+                        </td>
+                        
+                        <td>
+                        </td>
+                    </tr>
+                </table>
+            </div>  
+
+            <div class="descendant-children">
+                <table>
+                    <tr>
+                        <td>
+                            <div class="descendant-photo">
+                                <figure>
+                                    <img src="img/harvey.jpg" alt="Havrey picture">
+                                    <figcaption><span class="text-on-background-1">Harvey</span></figcaption> 
+                                </figure>
+                            </div>
+                            <br>
+                            <br>
+                            <br>
+                            <ol class="descendant-grandchildren">
+                                <li><span class="text-on-background-2">xxxxxxxx</span></li>
+                                <li><span class="text-on-background-2">xxxxxxxx</span></li>
+                                <li><span class="text-on-background-2">xxxxxxxx</span></li>
+                                                                    
+                            </ol>
+                        </td>
+                        
+                        <td>
+                        </td>
+                    </tr>
+                </table>
+            </div>                 
+        </div>
+    </div>
+
+    <div class="col-8 sibling-main-content" id="butchie-main-content">
+        <p>Age: <span id="butchie-age"></span>.</p>
+        <p>Born: <strong>March 05, 1950</strong>, <span class="georgia-state-color">Macon, Georgia</span><span class="display-inline"><br>Died: <strong>June 08, 2013</strong>, <span class="illinois-state-color">Chicago, Illinois</span></span></p>
+
+        <p>Charles, know as "Butchie", is our mother Gertrude's <span class="text-on-background-3">third</span> born child.  A persuasive individual, "Butchie" was the first of Gertrude's children to enter the military, <strong>United States Marine Corps</strong> . . .</p>
+        
+        <p>Graduated from Coyne American Institute earning credentials in <strong>Heating Ventilation Air Condition</strong>, leading to a succesful career as a <strong>HVAC</strong> Professional . . .
+    </div>   
+  </div>
+</div>
+<!------------------------>                   
+    <div class="row10"> 
+<!------------------------>                  
+        <div class="col-4" id="mary">
+        
+            <div class="caption clearfix">
+                <span class="birthdate birth-death-date-color"></span>
+                <span class="deathdate birth-death-date-color"></span>
+                <h2 class="icon-roll"><strong>Mary Jane</strong><span></span></h2>
+            </div>
+        </div>
+        
+        <div class="body">
+
+        <div class="col-4 sibling-bg-image" id="mary-bg-image">
+        
+           <div class="descendant">
+           
+                <div class="descendant-children">
+                    <table>
+                        <tr>
+                            <td>
+                                <div class="descendant-photo">
+                                    <figure>
+                                        <figcaption><span class="text-on-background-1">Theresa</span></figcaption> 
+                                    </figure>
+                                </div>
+                            <br>
+                            <br>
+                            <br>
+                                <ol class="descendant-grandchildren">
+                                    <li><span class="text-on-background-2">xxxxxxxx</span></li>
+                                    <li><span class="text-on-background-2">xxxxxxxx</span></li>
+                                    <li><span class="text-on-background-2">xxxxxxxx</span></li>
+                                </ol>
+                            </td>
+                            
+                            <td>
+                            </td>
+                        </tr>
+                    </table>
+                </div>  
+                     
+                <div class="descendant-children">
+                    <table>
+                        <tr>
+                            <td>
+                                <div class="descendant-photo">
+                                    <figure>
+                                        <img src="img/james.jpg" alt="James Picture">
+                                        <figcaption><span class="text-on-background-1">James</span></figcaption> 
+                                    </figure>
+                                </div>
+                            <br>
+                            <br>
+                            <br>
+                                <ol class="descendant-grandchildren">
+                                    <li><span class="text-on-background-2">xxxxxxxx</span></li>
+                                    <li><span class="text-on-background-2">xxxxxxxx</span></li>
+                                    <li><span class="text-on-background-2">xxxxxxxx</span></li>
+                                </ol>
+                            </td>
+                            
+                            <td>
+                            </td>
+                        </tr>
+                    </table>
+                </div>  
+
+                <div class="descendant-children">
+                    <table>
+                        <tr>
+                            <td>
+                                <div class="descendant-photo">
+                                    <figure>
+                                        <img src="img/penney.jpg" alt="Penny Picture">
+                                        <figcaption><span class="text-on-background-1">Penney</span></figcaption> 
+                                    </figure>
+                                </div>
+                            <br>
+                            <br>
+                            <br>
+                                <ol class="descendant-grandchildren">
+                                    <li><span class="text-on-background-2">xxxxxxxx</span></li>
+                                    <li><span class="text-on-background-2">xxxxxxxx</span></li>
+                                    <li><span class="text-on-background-2">xxxxxxxx</span></li>
+                                                                        
+                                </ol>
+                            </td>
+                            
+                            <td>
+                            </td>
+                        </tr>
+                    </table>
+                </div>                 
+            </div>
+        </div>
+        <div class="col-8 sibling-main-content" id="mary-main-content">
+            <p>Age: <span id="mary-age"><strong><mark>XX</mark></strong></span>&nbsp;&nbsp;(<span class="text-on-background-3">unknown</span>)</p>
+            <p>Born: <strong>November 22, <strong>19xx</strong></strong>, <span class="georgia-state-color">Macon, Georgia</span><span class="display-none"><br>XXXX: <strong>xxxxxx 99, 9999</strong>, <span class="illinois-state-color">Chicago, Illinois</span></span></p>
+            <p>Mary is our mother Gertrude's <span class="text-on-background-3">fourth</span> born child.  A patient and understanding individual, Mary went on to become the Chicago Public School <strong>Teacher's Aide</strong> of the Scott family . . .</p>
+        </div>
+    </div>        
+</div>
+<!------------------------>
+    <div class="row11">
+<!------------------------>
+        <div class="col-4" id="larry">
+        
+            <div class="caption clearfix">
+                <span class="birthdate birth-death-date-color">1953</span>
+                <span class="deathdate birth-death-date-color">1974</span>
+                <h2 class="icon-roll"><strong>Larry James</strong></h2>
+            </div>
+            
+        </div>
+        
+        <div class="body">
+        
+        <div class="col-4 sibling-bg-image" id="larry-bg-image">
+        
+            <div class="descendant">
+
+                <div class="descendant-children">
+                    <table>
+                        <tr>
+                            <td>
+                                <div class="descendant-photo">
+                                    <figure>
+                                        <figcaption><span class="text-on-background-1">Timothy</span></figcaption> 
+                                    </figure>
+                                </div>
+                            <br>
+                            <br>
+                            <br>
+                                <ol class="descendant-grandchildren">
+                                    <li><span class="text-on-background-2">xxxxxxxx</span></li>
+                                    <li><span class="text-on-background-2">xxxxxxxx</span></li>
+                                    <li><span class="text-on-background-2">xxxxxxxx</span></li>
+                                </ol>
+                            </td>
+                            
+                            <td>
+                            </td>
+                        </tr>
+                    </table>
+                </div>  
+                     
+                <div class="descendant-children visibility-hidden">
+                    <table>
+                        <tr>
+                            <td>
+                                <div class="descendant-photo">
+                                    <figure>
+                                        <figcaption><span class="text-on-background-1"></span></figcaption> 
+                                    </figure>
+                                </div>
+                            <br>
+                            <br>
+                            <br>
+                                <ol class="descendant-grandchildren">
+                                    <li><span class="text-on-background-2"></span></li>
+                                    <li><span class="text-on-background-2"></span></li>
+                                    <li><span class="text-on-background-2"></span></li>
+                                </ol>
+                            </td>
+                            
+                            <td>
+                            </td>
+                        </tr>
+                    </table>
+                </div>  
+
+                <div class="descendant-children visibility-hidden">
+                    <table>
+                        <tr>
+                            <td>
+                                <div class="descendant-photo">
+                                    <figure>
+                                        <figcaption><span class="text-on-background-1"></span></figcaption> 
+                                    </figure>
+                                </div>
+                            <br>
+                            <br>
+                            <br>
+                                <ol class="descendant-grandchildren">
+                                    <li><span class="text-on-background-2"></span></li>
+                                    <li><span class="text-on-background-2"></span></li>
+                                </ol>
+                            </td>
+                            
+                            <td>
+                            </td>
+                        </tr>
+                    </table>
+                </div> 
+  
+            </div>
+        </div>
+
+        <div class="col-8 sibling-main-content" id="larry-main-content">
+            <p>Age: <span id="larry-age"></span>.</p>
+            <p>Born: <strong>June 15, 1953</strong>, <span class="georgia-state-color">Macon, Georgia</span><br>Died: <strong>Februay 08, 1974</strong> ,<span class="illinois-state-color">Chicago, Illinois</span></p>
+
+            <p>Larry is our mother Gertrude's <span class="text-on-background-3">fifth</span> born child.  An aspiring entrepenur, Larry always found a way to earn money.  Larry was the second of Gertrude's children to enter the military, <strong>United States Army</strong>.</p>
+            
+            <p>While deployed with his military unit in Germany, Larry was killed. To this day, Larry's death still remains a mystery . . . .</p>
+        </div>
+    </div>
+</div>
+<!------------------------>
+    <div class="row12">
+<!------------------------>   
+    <div class="col-4" id="gregory">
+    
+        <div class="caption clearfix">
+            <span class="birthdate birth-death-date-color"></span>
+            <span class="deathdate birth-death-date-color"></span>
+            <h2 class="icon-roll"><strong>Gregory</strong><span></span></h2>
+        </div>
+        
+    </div>
+    
+    <div class="body">
+    
+        <div class="col-4 sibling-bg-image" id="gregory-bg-image">
+           <div class="descendant">
+           
+                <div class="descendant-children">
+                    <table>
+                        <tr>
+                            <td>
+                                <div class="descendant-photo">
+                                    <figure>
+                                        <img src="img/latasha.jpg" alt="Latasha">
+                                        <figcaption><span class="text-on-background-1">Latasha</span></figcaption> 
+                                    </figure>
+                                </div>
+                                <br>
+                                <br>
+                                <br>
+                                <ol class="descendant-grandchildren">
+                                    <li><span class="text-on-background-2">Donald</span></li>
+                                    <li><span class="text-on-background-2">Sheldon</span></li>    
+                                </ol>
+                            </td>
+                        </tr>
+                    </table>
+                </div>  
+                     
+                <div class="descendant-children">
+                    <table>
+                        <tr>
+                            <td>
+                                <div class="descendant-photo">
+                                    <figure>
+                                        <img src="img/tina.jpg" alt="Tina">
+                                        <figcaption><span class="text-on-background-1">Tina</span></figcaption> 
+                                    </figure>
+                                </div>
+                                <br>
+                                <br>
+                                <br>
+                                <ol class="descendant-grandchildren">
+                                    <li><span class="text-on-background-2">Daraven</span></li>
+                                    <li><span class="text-on-background-2">Zaria</span></li>
+                                    <li><span class="text-on-background-2">Steven</span></li>
+                                    <li><span class="text-on-background-2">Syniah</span></li>                                  
+                                </ol>  
+                            </td>
+
+                            <td>
+                            </td>
+                        </tr>
+                    </table>
+                </div>  
+
+                <div class="descendant-children">
+                    <table>
+                        <tr>
+                            <td>
+                                <div class="descendant-photo">
+                                    <figure>
+                                        <img src="img/greg-jr.jpg" alt="GregJr">
+                                        <figcaption><span class="text-on-background-1">Greg Jr</span></figcaption> 
+                                    </figure>
+                                </div>
+                                <br>
+                                <br>
+                                <br>
+                                <ol class="descendant-grandchildren">
+                                    <li><span class="text-on-background-2">Nina-Symone</span></li>
+                                    <li><span class="text-on-background-2">Ava</span></li>                                  
+                                </ol>
+                            </td>
+                            
+                            <td>
+                            </td>
+                        </tr>
+                    </table>
+                </div>                 
+            </div>
+        </div>
+
+        <div class="col-8 sibling-main-content" id="gregory-main-content">
+            <p>Age: <span id="gregory-age"></span></p>
+            <p>Born: <strong>January 18, 1958</strong>, <span class="georgia-state-color">Macon, Georgia</span><span class="display-none"><br>XXXX: <strong>xxxxx 99, 9999</strong>, <span class="illinois-state-color">Chicago, Illinois</span></span></p>
+            <p>Gregory is our mother Gertrude's <span class="text-on-background-3">sixth</span> born child.  Influenced by the <strong>SCFI</strong> television series "<strong>Star Trek</strong>", which peaked his interest in Scientific theory and computers, Gregory is the Scott family's <strong>Computer Technology Professional</strong>.</p>
+            
+            <p> Inspired by younger brother Anthony and friend Alfred to play <strong>guitar</strong>, been playing ever since . . .</p>
+        </div> 
+    </div>    
+</div>
+<!-------------------------->
+    <div class="row13">
+<!-------------------------->
+    <div class="col-4" id="anthony">
+    
+        <div class="caption clearfix">
+            <span class="birthdate birth-death-date-color"></span>
+            <span class="deathdate birth-death-date-color"></span>
+            <h2 class="icon-roll"><strong>Anthony</strong><span></span></h2>
+        </div>
+    </div>
+    
+        <div class="body">
+        
+           <div class="col-4 sibling-bg-image" id="anthony-bg-image">
+           
+                <div class="descendant-children">
+                    <table>
+                        <tr>
+                            <td>
+                                <div class="descendant-photo">
+                                    <figure>
+                                        <img src="img/anthony-jr.jpg" alt="Anthony-jr picture">
+                                        <figcaption><span class="text-on-background-1">Anthony Jr</span></figcaption> 
+                                    </figure>
+                                </div>
+                            <br>
+                            <br>
+                            <br>
+                                <ol class="descendant-grandchildren">
+                                    <li><span class="text-on-background-2">xxxxxxxx</span></li>
+                                    <li><span class="text-on-background-2">xxxxxxxx</span></li>
+                                    <li><span class="text-on-background-2">xxxxxxxx</span></li>                                        
+                                </ol>
+                            </td>
+                            
+                            <td>
+                            </td>
+                        </tr>
+                    </table>
+                </div>  
+                     
+                <div class="descendant-children">
+                    <table>
+                        <tr>
+                            <td>
+                                <div class="descendant-photo">
+                                    <figure>
+                                        <figcaption><span class="text-on-background-1">Antoine</span></figcaption> 
+                                    </figure>
+                                </div>
+                            <br>
+                            <br>
+                            <br>
+                                <ol class="descendant-grandchildren">
+                                    <li><span class="text-on-background-2">xxxxxxxx</span></li>
+                                    <li><span class="text-on-background-2">xxxxxxxx</span></li>
+                                    <li><span class="text-on-background-2">xxxxxxxx</span></li>
+                                                                        
+                                </ol>
+                            </td>
+                            
+                            <td>
+                            </td>
+                        </tr>
+                    </table>
+                </div>  
+
+
+                <div class="descendant-children">
+                    <table>
+                        <tr>
+                            <td>
+                                <div class="descendant-photo">
+                                    <figure>
+                                        <figcaption><span class="text-on-background-1">Antonio</span></figcaption> 
+                                    </figure>
+                                </div>
+                            <br>
+                            <br>
+                            <br>
+                                <ol class="descendant-grandchildren">
+                                    <li><span class="text-on-background-2">xxxxxxxx</span></li>
+                                    <li><span class="text-on-background-2">xxxxxxxx</span></li>
+                                    <li><span class="text-on-background-2">xxxxxxxx</span></li>
+                                                                        
+                                </ol>
+                            </td>
+                            
+                            <td>
+                            </td>
+                        </tr>
+                    </table>
+                </div>                 
+            </div>
+
+        <div class="col-8 sibling-main-content" id="anthony-main-content">
+            <p>Age: <span id="anthony-age"></span></p>        
+            <p>Born: <strong>October 02, 1959</strong>, <span class="illinois-state-color">Chicago, Illinois</span><span class="display-none"><br>XXXX: <strong>xxxxx 99, 9999</strong>, <span class="illinois-state-color">Chicago, Illinois</span></span></p>
+            <p>Anthony is our mother Gertrude's <span class="text-on-background-3">seventh</span> born child. His fascintion with "Music" during highschool, led to him learning to play drums and influencing older brother Gregory to play guitar.</p>
+            <p>He, himself, was influenced by older brother "Butchie" to attend COYNE American Institute, graduating with credentials in <strong>Electrical Maintenance</strong>, leading to a career as an <strong>Electrical Engineer</strong>.</p>
+            
+            <p>Anthony has many talents, but his calling to <strong>God's</strong> ministry has come to the forefront of his life . . . . .  </p>
+        </div>
+    </div>    
+</div>    
+
+<!-------------------------->
+    <div class="row14">
+<!-------------------------->        
+    <div class="col-4" id="kathleen">
+    
+        <div class="caption clearfix">
+            <span class="birthdate birth-death-date-color"></span>
+            <span class="deathdate birth-death-date-color"></span>
+            <h2 class="icon-roll"><strong>Kathleen</strong><span></span></h2>
+        </div>
+    </div>
+    
+    <div class="body">
+    
+       <div class="col-4 sibling-bg-image" id="kathleen-bg-image">
+       
+            <div class="descendant-children">
+                <table>
+                    <tr>
+                        <td>
+                            <div class="descendant-photo">
+                                <figure>
+                                    <img src="img/shalena.jpg" alt="Shalena picture">
+                                    <figcaption><span class="text-on-background-1">Shalena</span></figcaption> 
+                                </figure>
+                            </div>
+                            <br>
+                            <br>
+                            <br>
+                            
+                            <ol class="descendant-grandchildren">
+                                <li><span class="text-on-background-2">Chrishaun</span></li>
+                            </ol>
+                        </td>
+                        <td>
+                        </td>
+                    </tr>
+                </table>
+            </div>  
+                 
+            <div class="descendant-children">
+                <table>
+                    <tr>
+                        <td>
+                            <div class="descendant-photo">
+                                <figure>
+                                    <img src="img/angel.jpg" alt="Angel Picture">
+                                    <figcaption><span class="text-on-background-1">Angel</span></figcaption> 
+                                </figure>
+                            </div>
+                            <br>
+                            <br>
+                            <br>
+                            <ol class="descendant-grandchildren">
+                                <li><span class="text-on-background-2">Aspen D. Scott</span></li>
+                                <li><span class="text-on-background-2">Jax A. Thomas</span></li>                                
+                            </ol>
+                        </td>
+                        <td>
+                        </td>
+                    </tr>
+                </table>
+            </div>  
+           
+                <div class="descendant-children visibility-hidden">
+                    <table>
+                        <tr>
+                            <td>
+                                <div class="descendant-photo">
+                                    <figure>
+                                        <figcaption><span class="text-on-background-1"></span></figcaption> 
+                                    </figure>
+                                </div>
+                            <br>
+                            <br>
+                            <br>
+                                <ol class="descendant-grandchildren visibility-hidden">
+                                    <li><span class="text-on-background-2"></span></li>
+                                    <li><span class="text-on-background-2"></span></li>
+                                    <li><span class="text-on-background-2"></span></li>
+                                </ol>
+                            </td>
+                            
+                            <td>
+                            </td>
+                        </tr>
+                    </table>
+                </div> 
+        </div>
+
+    
+        <div class="col-8 sibling-main-content" id="kathleen-main-content">
+            <p>Age: <span id="kathleen-age"></span></p>
+            <p>Born: <strong>December 13, 1960</strong>, <span class="illinois-state-color">Chicago, Illinois</span><span class="display-none"><br>XXXX: <strong>xxxxx 99, 9999</strong>, <span class="illinois-state-color">Chicago, Illinois</span></span></p>
+            
+            <p>Kathleen is our mother Gertrude's <span class="text-on-background-3">eighth</span> born child. She very well could be the "second" coming of our mother Gertrude.  Kathleen is a <strong>TSA Security Professional</strong>. . .</p>
+        </div>  
+    </div>
+ </div>
+<!------------------------>    
+    <div class="row15">
+<!------------------------>
+        <div class="col-4" id="laura">
+        
+            <div class="caption clearfix">
+                <span class="birthdate birth-death-date-color"></span>
+                <span class="deathdate birth-death-date-color"></span>
+                <h2 class="icon-roll"><strong>Laura Ann</strong><span></span></h2>
+            </div>
+        </div>
+        
+        <div class="body">
+        
+           <div class="col-4 sibling-bg-image" id="laura-bg-image"> 
+           
+                <div class="descendant-children">
+                    <table>
+                        <tr>
+                            <td>
+                                <div class="descendant-photo">
+                                    <figure>
+                                        <img src="img/antonio.jpg" alt="Antonio picture">
+                                        <figcaption><span class="text-on-background-1">Antonio</span></figcaption> 
+                                    </figure>
+                                </div>
+                            <br>
+                            <br>
+                            <br>
+                                <ol class="descendant-grandchildren visibility-hidden">
+                                    <li><span class="text-on-background-2">xxxxxxxx</span></li>
+                                    <li><span class="text-on-background-2">xxxxxxxx</span></li>
+                                </ol>
+                            </td>
+                            
+                            <td>
+                            </td>
+                        </tr>
+                    </table>
+                </div>  
+                     
+                <div class="descendant-children">
+                    <table>
+                        <tr>
+                            <td>
+                                <div class="descendant-photo">
+                                    <figure>
+                                        <img src="img/nicole.jpg" alt="Nicole Picture">
+                                        <figcaption><span class="text-on-background-1">Nicole</span></figcaption> 
+                                    </figure>
+                                </div>
+                            <br>
+                            <br>
+                            <br>
+                                <ol class="descendant-grandchildren">
+                                    <li><span class="text-on-background-2">Aaliyah</span></li>
+                                    <li><span class="text-on-background-2">Kevin Jr.</span></li>
+                                    <li><span class="text-on-background-2">Keniyah</span></li>
+                                    <li><span class="text-on-background-2">Lyriq</span></li>
+                                </ol>
+                            </td>
+                            
+                            <td>
+                            </td>
+                        </tr>
+                    </table>
+                </div>  
+
+           
+                <div class="descendant-children visibility-hidden">
+                    <table>
+                        <tr>
+                            <td>
+                                <div class="descendant-photo">
+                                    <figure>
+                                        <figcaption><span class="text-on-background-1"></span></figcaption> 
+                                    </figure>
+                                </div>
+                            <br>
+                            <br>
+                            <br>
+                                <ol class="descendant-grandchildren display-none">
+                                    <li><span class="text-on-background-2"></span></li>
+                                    <li><span class="text-on-background-2"></span></li>
+                                    <li><span class="text-on-background-2"></span></li>
+                                </ol>
+                            </td>
+                            
+                            <td>
+                            </td>
+                        </tr>
+                    </table>
+                </div> 
+
+            </div>
+            
+            <div class="col-8 sibling-main-content" id="laura-main-content">
+                <p>Age: <span id="laura-age"></span></p>
+                <p>Born: <strong>May 27, 1963</strong>, <span class="illinois-state-color">Chicago, Illinois</span><span class="display-none"><br>XXXX: <strong>xxxxx 99, 9999</strong>, <span class="illinois-state-color">Chicago, Illinois</span></span></p>
+
+                <p>Laura, known as "LA", is our mother Gertrude's <span class="text-on-background-3">ninth</span> born child.  <strong>LA</strong> is another Scott Family <strong>Office Professional . . .</strong></p>
+            </div>  
+      </div>
+</div>
+<!------------------------>    
+    <div class="row16">
+<!------------------------>
+    <div class="col-4" id="carolyn">
+    
+        <div class="caption clearfix">
+            <span class="birthdate birth-death-date-color"></span>
+            <span class="deathdate birth-death-date-color"></span>
+            <h2 class="icon-roll"><strong>Carolyn</strong><span></span></h2>
+        </div>
+    </div>
+    
+        <div class="body">
+        
+            <div class="col-4 sibling-bg-image" id="carolyn-bg-image">
+
+                <div class="descendant-children">
+                    <table>
+                        <tr>
+                            <td>
+                                <div class="descendant-photo">
+                                    <figure>
+                                        <figcaption><span class="text-on-background-1">Darryl II.</span></figcaption> 
+                                    </figure>
+                                </div>
+                            <br>
+                            <br>
+                            <br>
+                                <ol class="descendant-grandchildren visibility-hidden">
+                                    <li><span class="text-on-background-2">xxxxxxxx</span></li>
+                                    <li><span class="text-on-background-2">xxxxxxxx</span></li>
+                                    <li><span class="text-on-background-2">xxxxxxxx</span></li>
+                                </ol>
+                            </td>
+                            
+                            <td>
+                            </td>
+                        </tr>
+                    </table>
+                </div>  
+                     
+                <div class="descendant-children">
+                    <table>
+                        <tr>
+                            <td>
+                                <div class="descendant-photo">
+                                    <figure>
+                                        <figcaption><span class="text-on-background-1">Tiffanie</span></figcaption> 
+                                    </figure>
+                                </div>
+                            <br>
+                            <br>
+                            <br>
+                                <ol class="descendant-grandchildren visibility-hidden">
+                                    <li><span class="text-on-background-2">xxxxxxxx</span></li>
+                                    <li><span class="text-on-background-2">xxxxxxxx</span></li>
+                                    <li><span class="text-on-background-2">xxxxxxxx</span></li>
+                                </ol>
+                            </td>
+                            
+                            <td>
+                            </td>
+                        </tr>
+                    </table>
+                </div>  
+
+
+                <div class="descendant-children">
+                    <table>
+                        <tr>
+                            <td>
+                                <div class="descendant-photo">
+                                    <figure>
+                                        <figcaption><span class="text-on-background-1">Christopher</span></figcaption> 
+                                    </figure>
+                                </div>
+                            <br>
+                            <br>
+                            <br>
+                                <ol class="descendant-grandchildren display-none">
+                                    <li><span class="text-on-background-2">xxxxxxxx</span></li>
+                                    <li><span class="text-on-background-2">xxxxxxxx</span></li>
+                                    <li><span class="text-on-background-2">xxxxxxxx</span></li>
+                                                                        
+                                </ol>
+                            </td>
+                            
+                            <td>
+                            </td>
+                        </tr>
+                    </table>
+                </div>                 
+            </div>
+
+            <div class="col-8 sibling-main-content" id="carolyn-main-content">
+                <p>Age: <span id="carolyn-age"></span></p>
+                <p>Born: <strong>February 19, 1969</strong>, <span class="illinois-state-color">Chicago, Illinois</span><span class="display-none"><br>XXXX: <strong>xxxxx 99, 9999</strong>, <span class="illinois-state-color">Chicago, Illinois</span></span></p>
+
+                  <p>Carolyn is our mother Gertrude's <span class="text-on-background-3">tenth</span> born child.  Carolyn has become the Scott Family's <strong>Insurance Professional</strong>, and was the third of Gertrude's children to enter the military, <strong>United States Army</strong>.</p>
+            </div>  
+      </div>   
+</div>
+<!-------------------------> 
+		<div class="row17" >
+<!-------------------------> 
+        <footer class="col-12 copyright">
+            <div><p id="copyright-1"></p></div>
+            <div><p id="email-contact-us"><strong><mark>gregscott618904@gmail.com</mark></strong></p></div>
+            <div><p id="copyright-2"><strong><mark>All Rights Reserved</mark></strong></p></div>            
+
+        </footer>
+		</div>
+   
+</div> 
+
+<script src="js/user-experience.js"></script>
+
+</body>
+</html>
