@@ -1,6 +1,6 @@
     var d = new Date();
     var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-    document.getElementById("copyright-1").innerHTML = "<strong><mark>© Copyright " + d.getFullYear() + " Gregory & Christine Scott</mark></strong>.";
+    document.getElementById("copyright-1").innerHTML = "<strong><mark>© Copyright " + d.getFullYear() + " <br>Family Tree Creations</mark></strong>.";
 
     $(document).ready(function() {
     
@@ -10,7 +10,7 @@
         var siblingAge = getAge("09/08/1928", "06/05/2004");
         document.getElementById("gertrude-age").innerHTML= siblingAge ;
         
-        var siblingAge = getAge("01/15/1946", "00/00/0000");
+        var siblingAge = getAge("01/15/1946", "04/11/2025");
         document.getElementById("catherine-age").innerHTML= siblingAge ;
         
         var siblingAge = getAge("01/06/1948", "00/00/0000");
@@ -19,8 +19,8 @@
         var siblingAge = getAge("03/05/1950", "06/08/2013");
         document.getElementById("butchie-age").innerHTML= siblingAge ;
         
-/*        var siblingAge = getAge("11/22/1951", "00/00/0000");
-        document.getElementById("mary-age").innerHTML= siblingAge ;  */
+        var siblingAge = getAge("11/22/1952", "00/00/0000");
+        document.getElementById("mary-age").innerHTML= siblingAge ;
         
         var siblingAge = getAge("06/15/1953", "02/08/1974");
         document.getElementById("larry-age").innerHTML= siblingAge ;
@@ -28,10 +28,10 @@
         var siblingAge = getAge("01/18/1958", "00/00/0000");
         document.getElementById("gregory-age").innerHTML= siblingAge ;
         
-        var siblingAge = getAge("10/02/1959", "00/00/0000");
+        var siblingAge = getAge("10/02/1959", "07/15/2025");
         document.getElementById("anthony-age").innerHTML= siblingAge ;
         
-        var siblingAge = getAge("12/13/1960", "00/00/0000");
+        var siblingAge = getAge("12/13/1960", "08/11/2022");
         document.getElementById("kathleen-age").innerHTML= siblingAge ;
         
         var siblingAge = getAge("05/27/1963", "00/00/0000");
@@ -88,11 +88,14 @@
             $( this ).children("span").removeClass   ( "text-on-background-1" );
         });
 
-        $(".icon-roll").mouseenter(function() {
-            $( this ).effect("shake");
-            });     
-        
-        $(".icon-roll").click(function() {       
+        $(".tribute").hover(function() {
+            $( this ).addClass   ( "highlight-tribute" );             
+            }, function() {
+            $( this ).removeClass   ( 
+                "highlight-tribute" );
+        });
+ 
+        $(".tribute").click(function() {       
             var $bgimage       = $(this).closest("[class^=row]").find(".sibling-bg-image");
             var $maincontent   = $(this).closest("[class^=row]").find(".sibling-main-content");
             
@@ -131,16 +134,18 @@
                $( "#readmorebtn" ).html       ( "Show List" );     
             }            
          });
-         
-        $("#what-should-i-include-main-content").mouseenter(function() {
-            $("#readmorebtn").effect("shake");
-            });     
+
+        $("#readmorebtn").effect("shake");
+            setInterval(() => {
+                $("#readmorebtn").effect("shake");
+            }, 5000);
                 
           $("#color-schemes ul li").on("click", function(){
             var path = $(this).data("path");
             $("#color-switcher").attr("href", path);
          });
-         
+
+/*
           $("#gertrude-footer-2").hover(function() {
             $( "#life-story-banner" ).effect("shake");
             $( "#life-story-banner" ).addClass   ( "life-story-banner" );            
@@ -150,8 +155,9 @@
             $( "#life-story-banner" ).removeClass   ( "life-story-banner" );
             $( "#life-story-banner" ).html       ( "<strong>We Must Write . . .</strong>" );             
           });
+*/
 
-         $("#myCarousel").carousel({interval: 8000});
+         $("#myCarousel").carousel({interval: 5000});
 
         $(".descendant-photo").hover(function() {
             $( this ).children("figure").addClass      ( "enlarge-descendant-photo" );             
@@ -191,6 +197,61 @@
             $("#carolyn-main-content").toggle();           
         });
          
+        $(".toggle-all-children").click();
+
+app_demo();
+
+function app_demo() {
+    /*-----------------*/
+    /*- Hide Sections -*/
+    /*-----------------*/
+    $("#color-schemes").addClass("display-none");
+//    $("#header-section").addClass("display-none");
+    $("#photo-section").addClass("display-none");
+    $("#sidebar-1-section").addClass("display-none");
+    $("#sidebar-2-section").addClass("display-none");
+    $("#gertrude-note-1").addClass("display-none");
+    $("#gertrude-note-2").addClass("display-none");
+    $("#scott-family-carousel").addClass("display-none");        
+    $("#call-to-action").addClass("display-none");
+    $("#as-you-write").addClass("display-none");        
+    $("#what-should-you-include").addClass("display-none");
+    $("#why-write-life-story").addClass("display-none");
+    $(".toggle-all-children").off("click");
+
+    let delay = 0;
+
+    /*-----------------*/
+    /*- Click Sibling -*/
+    /*-----------------*/
+    $(".tribute").each(function(index, element) {
+
+        let sibling_id = "#" + this.closest('div.ptr').id;
+
+        setTimeout(() => {
+            this.click();
+        }, 5 * 1000 + delay);
+
+        setTimeout(() => {
+            $("html, body").animate({
+            scrollTop: $(sibling_id).offset().top
+            }, 5 * 1000);
+        }, 10 * 1000 + delay); 
+
+    //    delay = delay + 5;
+
+    }); // each loop
+
+        setTimeout(() => {
+            $(".tribute").off("click");
+            $(".tribute").off("hover");
+            $(".tribute").removeClass("tribute");
+        }, 10 * 1000);
+
+} // end app_demo
+
+
+        
 /*      $("#sticker").unstick();    */
 
         function getAge(DOB, DOD) {
@@ -201,7 +262,7 @@
             if  (deathDate.getFullYear () > 0) {
                 var age = deathDate.getFullYear() - birthDate.getFullYear();
                 var m = deathDate.getMonth() - birthDate.getMonth();
-                var comment = " at (time-of-death)";
+                var comment = "&nbsp;&nbsp;&nbsp;&nbsp;(time-of-death)";
             }
             else {
                 var age = today.getFullYear() - birthDate.getFullYear();
@@ -216,20 +277,3 @@
         }
         
     });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    

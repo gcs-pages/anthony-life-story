@@ -1,17 +1,17 @@
-/*------------------------------*/
-/*- Black-on-Pink-Color-Scheme -*/
-/*------------------------------*/
+/*-------------------------------*/
+/*- White-Smoke-On-Sienna-Brown -*/
+/*-------------------------------*/
   body {
     background-color:   #000000;
   }
- 
+  
   h1,
   h2,
   h3,
   h4,
   h5,
   h6 {
-      background-color: #ff9393;
+      background-color: #25a7da;
       color:         #000000;
       margin-top:    5px;
       margin-bottom: 5px;
@@ -21,29 +21,28 @@
       box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
   }
   .text-on-background-1 {
-      background-color:   #ff9393;
+      background-color:   #25a7da;
       font-weight:  bold;  
       color:        #000000;
       text-align:   center;
   }
-
   .text-on-background-2 {
       font-size:     .75em;
       background-color:   #454545;
-      color:        #ffffff;
+      color:        #f5f5f5;
       text-align:   left;
   }
   .text-on-background-3 {
       background-color:   #454545;
-      color:        #ffffff;
+      color:        #f5f5f5;
       text-align:   left;
   }
   .text-on-background-4 {
-      background-color:   #ff9393;
+      font-size:    100%;
+      background-color:   #25a7da;
       color:        #000000;
       text-align:   center;
   }
-
   
 .text-on-background-5 {
     background-color:   #454545;
@@ -65,14 +64,13 @@
   }
 
   .header-bg-color {
-    background-color:   #ff9393;
+    background-color:   #25a7da;
     color: #000000;
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
-
   }
-
+  
  .side-bar-title {
-    background-color: #ff9393;
+    background-color: #25a7da;
     color: #000000;
     font-size: 18px;
     font-weight: bold;
@@ -85,13 +83,15 @@
     text-align: center;
   }
 
-  .text-center {
+  .header-text-align {
     text-align: center;
+    color: #000000;
   }
 
   .caption-color {
     background-color:   #454545;
-    color:        #ffffff;
+    color:        #f5f5f5;
+    text-align:   center;
     border: 1px solid #000000;
   }
 
@@ -99,6 +99,6 @@
     font-size: 1.135em;
     font-weight: bold;
 }
-/*------------------------------*/
-/*- Black-on-Pink-Color-Scheme -*/
-/*------------------------------*/
+/*-------------------------*/
+/*- White-on-Sienna-Brown -*/
+/*-------------------------*/

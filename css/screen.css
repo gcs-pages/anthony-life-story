@@ -26,101 +26,149 @@ article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary
 
 #catherine-bg-image {
     margin:             0px;
-    border:             1px solid black;
+/*  border-top: 1px solid #000000; */
+    border-left:   1px solid #000000;
+    border-right:  1px solid #000000;
+    border-bottom: 1px solid #000000;
     text-overflow:      ellipsis;
     overflow:           hidden;
     background-image:   url("../img/catherine.jpg");
     background-size:    cover; 
     background-repeat:  round;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.catherine-footer {
+    background: #d5d5d5;
+    width: 97.5%;
+    margin: 10px;
+    padding: 5px;
+    border: 1px solid #000000;
 }
 
 #peggy-bg-image {
     margin:             0px;
-    border:             1px solid black;
+/*  border-top: 1px solid #000000; */
+    border-left:   1px solid #000000;
+    border-right:  1px solid #000000;
+    border-bottom: 1px solid #000000;
     text-overflow:      ellipsis;
     overflow:           hidden;
     background-image:   url("../img/peggy.jpg");
     background-size:    cover; 
     background-repeat:  round;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
 }
             
 #butchie-bg-image {
     margin:             0px;
-    border:             1px solid black;
+/*  border-top: 1px solid #000000; */
+    border-left:   1px solid #000000;
+    border-right:  1px solid #000000;
+    border-bottom: 1px solid #000000;
     text-overflow:      ellipsis;
     overflow:           hidden;
     background-image:   url("../img/butchie.jpg");
     background-size:    cover; 
     background-repeat:  round;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
 }      
 
 #mary-bg-image {
     margin:             0px;
-    border:             1px solid black;
+/*  border-top: 1px solid #000000; */
+    border-left:   1px solid #000000;
+    border-right:  1px solid #000000;
+    border-bottom: 1px solid #000000;
     text-overflow:      ellipsis;
     overflow:           hidden;
     background-image:   url("../img/mary.jpg");
     background-size:    cover; 
     background-repeat:  round;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
 } 
 
 #larry-bg-image {
     margin:             0px;
-    border:             1px solid black;
+/*  border-top: 1px solid #000000; */
+    border-left:   1px solid #000000;
+    border-right:  1px solid #000000;
+    border-bottom: 1px solid #000000;
     text-overflow:      ellipsis;
     overflow:           hidden;
     background-image:   url("../img/larry.jpg");
     background-size:    cover; 
     background-repeat:  round;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
 }        
 
 #gregory-bg-image {
     margin:             0px;
-    border:             1px solid black;
+/*  border-top: 1px solid #000000; */
+    border-left:   1px solid #000000;
+    border-right:  1px solid #000000;
+    border-bottom: 1px solid #000000;
     text-overflow:      ellipsis;
     overflow:           hidden;
     background-image:   url("../img/gregory.jpg");
     background-size:    cover; 
     background-repeat:  round;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
 #anthony-bg-image {
     margin:             0px;
-    border:             1px solid black;
+/*  border-top: 1px solid #000000; */
+    border-left:   1px solid #000000;
+    border-right:  1px solid #000000;
+    border-bottom: 1px solid #000000;
     text-overflow:      ellipsis;
     overflow:           hidden;
     background-image:   url("../img/anthony.jpg");
     background-size:    cover; 
     background-repeat:  round;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
 }      
 #kathleen-bg-image {
     margin:             0px;
-    border:             1px solid black;
+/*  border-top: 1px solid #000000; */
+    border-left:   1px solid #000000;
+    border-right:  1px solid #000000;
+    border-bottom: 1px solid #000000;
     text-overflow:      ellipsis;
     overflow:           hidden;
     background-image:   url("../img/kathleen.jpg");
     background-size:    cover; 
     background-repeat:  round;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
 #laura-bg-image {
     margin:             0px;
-    border:             1px solid black;
+/*  border-top: 1px solid #000000; */
+    border-left:   1px solid #000000;
+    border-right:  1px solid #000000;
+    border-bottom: 1px solid #000000;
     text-overflow:      ellipsis;
     overflow:           hidden;
     background-image:   url("../img/laura.jpg");
     background-size:    cover; 
     background-repeat:  round;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
 #carolyn-bg-image {
     margin:             0px;
-    border:             1px solid black;
+/*  border-top: 1px solid #000000; */
+    border-left:   1px solid #000000;
+    border-right:  1px solid #000000;
+    border-bottom: 1px solid #000000;
     text-overflow:      ellipsis;
     overflow:           hidden;
     background-image:   url("../img/carolyn.jpg");
     background-size:    cover; 
     background-repeat:  round;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
 }                 
 
 .descendant {  
@@ -138,6 +186,11 @@ article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary
     margin-left:   65px;
     width:         150px; 
     height:        150px;
+}
+
+.highlight-tribute  {
+    background: #454545;
+    color: #ffffff;
 }
 
 .descendant-children {
@@ -173,8 +226,9 @@ p {
 /*-   (Mobile Portrait) Declaratons                   -*/
 /*-----------------------------------------------------*/
   body {
-    background-color:   #A0522D;
+    background-color:   #000000;
   }
+  
   h1,
   h2,
   h3,
@@ -206,18 +260,7 @@ p {
       color:        #ffffff;
       text-align:   left;
   }
-  .big-letters {
-      font-size:    1.5em;
-      background-color: #A0522D;
-      color:        #ffffff;      
-  }
 
-  figcaption:hover{
-    background-color:#454545;
-    color:           #ffffff;
-    cursor:          pointer;
-  }
-  
   .georgia-state-color {
       background-color:   #FFE5B4;
       color:              #000000;
@@ -268,7 +311,7 @@ p {
   /* mobile only: */
   
   body {
-        background-color:   #4CAF50;
+        background-color:   #000000;
   }
   
   [id*="-main-content"] {
@@ -290,18 +333,21 @@ p {
 /*-------------------*/
 /*- Mother Gertrude -*/
 /*-------------------*/
-      #gertrude-sidebar-1
-      {
-          float: left;
-      }
-      #gertrude-main-content
-      {
-          float: left;
-      }
-      #gertrude-sidebar-2
-      {   
-          float: left;
-      }
+#gertrude-main-content
+    {
+        float: left;
+    }
+
+#gertrude-sidebar-1
+    {
+/*        float: left; */
+    }
+
+#gertrude-sidebar-2
+{   
+      float: left;
+}
+
       #gertrude-foot-note
       {
           clear:  left;
@@ -485,6 +531,7 @@ p {
           clear: both;
   }
 }
+
 /*-----------------------------------------------------*/
 /*-   (Tablet) Accomodations                          -*/
 /*-----------------------------------------------------*/
@@ -495,7 +542,7 @@ p {
   }  
   /* For tablets: */
   body {
-        background-color:   #ff00ff;
+        background-color:   #000000;
   }
    h1 {font-size:   1.25em;}
    h2 {font-size:  .93em;}
@@ -532,7 +579,7 @@ p {
   }  
   
   body {
-        background-color:   #0000ff;
+        background-color:   #000000;
   }
   
    h1 {font-size:   1.56em;}

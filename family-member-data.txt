@@ -1,74 +1,94 @@
 
-1ST-GENERATION-SCOTT-FAMILY
+//------------------------------//
+//-- Scott Family Member Data --//
+//------------------------------//
 
-GENDER
-    brother
-    sister
+header
+    main-title
 
-BIRTH-DATE
-    photo
-    month
-    day
-    year
-
-BIRTH-POSITION
-    01 - 10
-
-EDUCATION
-    grammer school (year)
-    high school    (year and major)
-    trade school   (year and major)
-    college        (year and major)
-    university     (year and major)
-    other school   (year and major)
- 
-
-WORK-CATEGORY
-    labor
-    blue  colar (profession)
-    white colar (profession)
-
-MARRIAGE-DATE   (hetrosexuals only)
-    photo
-    month
-    day
-    year
+root
+    sidebar1-title
+    sidebar1-content
+    root-title-top
+    root-image
+    sidebar2-title
+    sidebar2-content
+    root-title-bottom
+write
+root
+    footer-1-content
     
-MARRIAGE-SPOUSE (heterosexuals only)
-    photo
-    month
-    day
-    year
+root
+    footer-2-content
 
-DIVORCE-DATE    (heterosexuals only)
-    photo
-    month
-    day
-    year
+photo-carousel
+    nine-photos
 
-CHILDREN (per child)
-    photo
-    month
-    day
-    year
+call-to-Action
+    call-to-action-content
+
+What-should-I-write
+    what-should-I-write-content
+
+Helpful-links
+    Helpful-link-links
     
-GRAND-CHILDREN (per child)
-    photo
+Generation-children-follows
+    1
+    2
+    3
+    4
+    .
+    .
+    .
+    10
+
+Generation
+    0
+    1
+    2
+    3
+    etc.
+
+Name
+    First
+    Middle
+    Last
+
+Gender
+    male
+    female
+
+BirthDate
     month
     day
     year
 
-GREAT-GRAND-CHILDREN (per child)
-    photo
+Age
+    javascript computation
+
+BirthPosition
+    1
+    2
+    3
+    etc.
+
+DeathDate
     month
     day
     year
+
+Photo
+    Portrait
     
-GREAT-GREAT-GRAND-CHILDREN (per child)
-    photo
-    month
-    day
-    year
+LifeStory
+    Blob
+
+
+
+    
+
+
 
 
 
