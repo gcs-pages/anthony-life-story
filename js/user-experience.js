@@ -75,7 +75,34 @@
         $("#copyright-1").toggle(4000);
         $("#copyright-2").toggle(4500);
         $("#email-contact-us").toggle(4500);
-                           
+
+        //--------------------//
+//- Set Browser Keys -//
+//--------------------//
+    $(document).on("contextmenu", ()=> {return false;});
+
+    document.body.addEventListener('keydown', event => {
+        if (event.ctrlKey && 'cfnjvxspwuatyz'.indexOf(event.key) !== -1) {
+          event.preventDefault()
+        }
+
+        if (event.ctrlKey && event.shiftKey && 'CIJKPNV'.indexOf(event.key) !== -1) {
+            event.preventDefault()
+        }
+
+        if (event.altlKey && 'EF'.indexOf(event.key) !== -1) {
+            event.preventDefault()
+        }
+
+        if (event.shiftKey && event.code == "F10") {
+            event.preventDefault()
+        }
+
+        if (event.code == "F12") {
+            event.preventDefault()
+        }
+    })
+                    
         $("footer").hover(function() {
             $("#copyright-1").effect("shake");
             }, function() {
