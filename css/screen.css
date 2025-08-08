@@ -124,7 +124,7 @@ article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary
     border-bottom: 1px solid #000000;
     text-overflow:      ellipsis;
     overflow:           hidden;
-    background-image:   url("../img/anthony-2.jpg");
+    background-image:   url("../img/anthony.jpg");
     background-size:    cover; 
     background-repeat:  round;
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
