@@ -76,7 +76,7 @@
         $("#copyright-2").toggle(4500);
         $("#email-contact-us").toggle(4500);
 
-        //--------------------//
+//--------------------//
 //- Set Browser Keys -//
 //--------------------//
     $(document).on("contextmenu", ()=> {return false;});
@@ -233,7 +233,7 @@ function app_demo() {
     /*- Hide Sections -*/
     /*-----------------*/
     $("#color-schemes").addClass("display-none");
-//    $("#header-section").addClass("display-none");
+//  $("#header-section").addClass("display-none");
     $("#photo-section").addClass("display-none");
     $("#sidebar-1-section").addClass("display-none");
     $("#sidebar-2-section").addClass("display-none");
@@ -263,7 +263,7 @@ function app_demo() {
             $("html, body").animate({
             scrollTop: $(sibling_id).offset().top
             }, 5 * 1000);
-        }, 10 * 1000 + delay); 
+        }, 5 * 1000 + delay); 
 
     //    delay = delay + 5;
 
@@ -271,9 +271,16 @@ function app_demo() {
 
         setTimeout(() => {
             $(".tribute").off("click");
-            $(".tribute").off("hover");
+
+        $(".tribute").hover(function() {
+            $( this ).removeClass   ( "highlight-tribute" );             
+            }, function() {
+            $( this ).removeClass   ( 
+                "highlight-tribute" );
+        });
+        
             $(".tribute").removeClass("tribute");
-        }, 10 * 1000);
+        }, 5 * 1000);
 
 } // end app_demo
 
