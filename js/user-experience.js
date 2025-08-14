@@ -186,6 +186,12 @@
 
          $("#myCarousel").carousel({interval: 5000});
 
+        $(".descendant-wife-photo").hover(function() {
+            $( this ).children("figure").addClass      ( "enlarge-descendant-wife-photo" );             
+            }, function() {
+            $( this ).children("figure").removeClass   ( "enlarge-descendant-wife-photo" );
+        });
+        
         $(".descendant-photo").hover(function() {
             $( this ).children("figure").addClass      ( "enlarge-descendant-photo" );             
             }, function() {
@@ -233,6 +239,7 @@ function app_demo() {
     /*- Hide Sections -*/
     /*-----------------*/
     $("#color-schemes").addClass("display-none");
+    $(".header-font-style").html("Scott Family Tributes");
 //  $("#header-section").addClass("display-none");
     $("#photo-section").addClass("display-none");
     $("#sidebar-1-section").addClass("display-none");
@@ -267,7 +274,7 @@ function app_demo() {
 
     //    delay = delay + 5;
 
-    }); // each loop
+    }); //each loop
 
         setTimeout(() => {
             $(".tribute").off("click");
@@ -282,9 +289,7 @@ function app_demo() {
             $(".tribute").removeClass("tribute");
         }, 5 * 1000);
 
-} // end app_demo
-
-
+} //end app_demo
         
 /*      $("#sticker").unstick();    */
 

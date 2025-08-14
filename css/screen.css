@@ -174,11 +174,25 @@ article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary
 .descendant {  
 }
 
+.descendant-wife-photo  {
+    float:    left;
+    margin:   auto;
+    width:    100px; 
+    height:   100px;
+}
+
 .descendant-photo  {
     float:    left;
     margin:   auto;
     width:    50px; 
     height:   50px;
+}
+
+.enlarge-descendant-wife-photo  {
+    margin-top:   -5px;
+    margin-left:   65px;
+    width:         150px; 
+    height:        150px;
 }
 
 .enlarge-descendant-photo  {
@@ -191,6 +205,8 @@ article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary
 .highlight-tribute  {
     background: #454545;
     color: #ffffff;
+}
+.descendant-wife {
 }
 
 .descendant-children {
