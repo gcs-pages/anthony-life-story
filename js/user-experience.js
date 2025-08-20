@@ -1,43 +1,45 @@
-    var d = new Date();
-    var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-    document.getElementById("copyright-1").innerHTML = "<strong><mark>© Copyright " + d.getFullYear() + " <br>Family Tree Creations</mark></strong>.";
+    "use strict";
 
-    $(document).ready(function() {
-    
+    let d = new Date();
+    let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    document.getElementById("copyright-1").innerHTML = "<strong><mark>© Copyright " + d.getFullYear() + " <br>Family Tree Creations</mark></strong>.";
+    let siblingAge = "";
+
+    $(document).ready(function() {  
         $("#sticker").sticky({ topSpacing: 0, bottomSpacing: 65, center:true, className:"is-sticky" });    
     /*  $("#color-schemes").delay(4000).fadeOut(2000).fadeIn(2000);  */
 
-        var siblingAge = getAge("09/08/1928", "06/05/2004");
+        siblingAge = getAge("09/08/1928", "06/05/2004");
         document.getElementById("gertrude-age").innerHTML= siblingAge ;
         
-        var siblingAge = getAge("01/15/1946", "04/11/2025");
+        siblingAge = getAge("01/15/1946", "04/11/2025");
         document.getElementById("catherine-age").innerHTML= siblingAge ;
         
-        var siblingAge = getAge("01/06/1948", "00/00/0000");
+        siblingAge = getAge("01/06/1948", "00/00/0000");
         document.getElementById("peggy-age").innerHTML= siblingAge ;
         
-        var siblingAge = getAge("03/05/1950", "06/08/2013");
+        siblingAge = getAge("03/05/1950", "06/08/2013");
         document.getElementById("butchie-age").innerHTML= siblingAge ;
         
-        var siblingAge = getAge("11/22/1952", "00/00/0000");
+        siblingAge = getAge("11/22/1952", "00/00/0000");
         document.getElementById("mary-age").innerHTML= siblingAge ;
         
-        var siblingAge = getAge("06/15/1953", "02/08/1974");
+        siblingAge = getAge("06/15/1953", "02/08/1974");
         document.getElementById("larry-age").innerHTML= siblingAge ;
         
-        var siblingAge = getAge("01/18/1958", "00/00/0000");
+        siblingAge = getAge("01/18/1958", "00/00/0000");
         document.getElementById("gregory-age").innerHTML= siblingAge ;
         
-        var siblingAge = getAge("10/02/1959", "07/15/2025");
+        siblingAge = getAge("10/02/1959", "07/15/2025");
         document.getElementById("anthony-age").innerHTML= siblingAge ;
         
-        var siblingAge = getAge("12/13/1960", "08/11/2022");
+        siblingAge = getAge("12/13/1960", "08/11/2022");
         document.getElementById("kathleen-age").innerHTML= siblingAge ;
         
-        var siblingAge = getAge("05/27/1963", "00/00/0000");
+        siblingAge = getAge("05/27/1963", "00/00/0000");
         document.getElementById("laura-age").innerHTML= siblingAge ;
         
-        var siblingAge = getAge("02/19/1969", "00/00/0000");
+        siblingAge = getAge("02/19/1969", "00/00/0000");
         document.getElementById("carolyn-age").innerHTML= siblingAge ;
         
         $("header").toggle(1000);      
@@ -115,6 +117,9 @@
             $( this ).children("span").removeClass   ( "text-on-background-1" );
         });
 
+//        $(".no-tribute").addClass("tribute");
+//        $(".no-tribute").removeClass("no-tribute");
+
         $(".tribute").hover(function() {
             $( this ).addClass   ( "highlight-tribute" );             
             }, function() {
@@ -123,8 +128,8 @@
         });
  
         $(".tribute").click(function() {       
-            var $bgimage       = $(this).closest("[class^=row]").find(".sibling-bg-image");
-            var $maincontent   = $(this).closest("[class^=row]").find(".sibling-main-content");
+            let $bgimage       = $(this).closest("[class^=row]").find(".sibling-bg-image");
+            let $maincontent   = $(this).closest("[class^=row]").find(".sibling-main-content");
             
             if ($bgimage.is(":hidden")) {
                $bgimage.show(1500);
@@ -151,7 +156,7 @@
          });
          
         $(".readmorebtn").click(function() {       
-            var $readmore       = $(this).closest("[class^=row]").find("#what-should-i-include-readmore");
+            let $readmore       = $(this).closest("[class^=row]").find("#what-should-i-include-readmore");
             
             if ($readmore.is(":hidden")) {
                $readmore.show(1500);
@@ -168,21 +173,9 @@
             }, 5000);
                 
           $("#color-schemes ul li").on("click", function(){
-            var path = $(this).data("path");
+            let path = $(this).data("path");
             $("#color-switcher").attr("href", path);
          });
-
-/*
-          $("#gertrude-footer-2").hover(function() {
-            $( "#life-story-banner" ).effect("shake");
-            $( "#life-story-banner" ).addClass   ( "life-story-banner" );            
-            $( "#life-story-banner" ).html       ( "<strong>Our Life Stories . . .</strong>" );
-            }, function() {
-            $( "#life-story-banner" ).effect("shake");
-            $( "#life-story-banner" ).removeClass   ( "life-story-banner" );
-            $( "#life-story-banner" ).html       ( "<strong>We Must Write . . .</strong>" );             
-          });
-*/
 
          $("#myCarousel").carousel({interval: 5000});
 
@@ -235,11 +228,13 @@
 app_demo();
 
 function app_demo() {
-    /*-----------------*/
-    /*- Hide Sections -*/
-    /*-----------------*/
+    hide_sections ();
+    change_title ();
+    click_siblings ();
+    disable_app ();
+
+function hide_sections () {
     $("#color-schemes").addClass("display-none");
-    $(".header-font-style").html("Scott Family Tributes");
 //  $("#header-section").addClass("display-none");
     $("#photo-section").addClass("display-none");
     $("#sidebar-1-section").addClass("display-none");
@@ -252,18 +247,20 @@ function app_demo() {
     $("#what-should-you-include").addClass("display-none");
     $("#why-write-life-story").addClass("display-none");
     $(".toggle-all-children").off("click");
+} //end_hide
 
+function change_title () {
+    $(".header-font-style").html("Scott Family Tributes");
+}
+
+function click_siblings () {
     let delay = 0;
 
-    /*-----------------*/
-    /*- Click Sibling -*/
-    /*-----------------*/
     $(".tribute").each(function(index, element) {
-
         let sibling_id = "#" + this.closest('div.ptr').id;
 
         setTimeout(() => {
-            this.click();
+            element.click();
         }, 5 * 1000 + delay);
 
         setTimeout(() => {
@@ -272,47 +269,53 @@ function app_demo() {
             }, 5 * 1000);
         }, 5 * 1000 + delay); 
 
-    //    delay = delay + 5;
+//         delay = delay + (5 * 1000);
+    }); //end each loop
+    
+} //end click
 
-    }); //each loop
+function disable_app () {
+    setTimeout(() => {
+        $(".tribute").off("click");
 
-        setTimeout(() => {
-            $(".tribute").off("click");
-
-        $(".tribute").hover(function() {
-            $( this ).removeClass   ( "highlight-tribute" );             
-            }, function() {
-            $( this ).removeClass   ( 
-                "highlight-tribute" );
-        });
-        
-            $(".tribute").removeClass("tribute");
-        }, 5 * 1000);
-
+    $(".tribute").hover(function() {
+        $( this ).removeClass   ( "highlight-tribute" );             
+        }, function() {
+        $( this ).removeClass   ( 
+            "highlight-tribute" );
+    });
+    
+        $(".tribute").removeClass("tribute");
+    }, 5 * 1000);
+} //end disable
+            
 } //end app_demo
-        
-/*      $("#sticker").unstick();    */
 
-        function getAge(DOB, DOD) {
-            var today       = new Date();
-            var birthDate   = new Date(DOB);
-            var deathDate   = new Date(DOD);
-            
-            if  (deathDate.getFullYear () > 0) {
-                var age = deathDate.getFullYear() - birthDate.getFullYear();
-                var m = deathDate.getMonth() - birthDate.getMonth();
-                var comment = "&nbsp;&nbsp;&nbsp;&nbsp;(time-of-death)";
-            }
-            else {
-                var age = today.getFullYear() - birthDate.getFullYear();
-                var m = today.getMonth() - birthDate.getMonth();
-                var comment = "";
-            }
-            
-            if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
-                age = age - 1;
-            }
-            return "<strong><mark>" + age + "</mark></strong>"  + comment ;
-        }
+/* $("#sticker").unstick(); */
+
+function getAge(DOB, DOD) {
+    let today       = new Date();
+    let birthDate   = new Date(DOB);
+    let deathDate   = new Date(DOD);
+    let age = "";
+    let m   = "";
+    let comment = "";
+    
+    if  (deathDate.getFullYear () > 0) {
+        age = deathDate.getFullYear() - birthDate.getFullYear();
+        m = deathDate.getMonth() - birthDate.getMonth();
+        comment = "&nbsp;&nbsp;&nbsp;&nbsp;(time-of-death)";
+    }
+    else {
+        age = today.getFullYear() - birthDate.getFullYear();
+        m = today.getMonth() - birthDate.getMonth();
+        comment = "";
+    }
+    
+    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+        age = age - 1;
+    }
+    return "<strong><mark>" + age + "</mark></strong>"  + comment ;
+}
         
     });

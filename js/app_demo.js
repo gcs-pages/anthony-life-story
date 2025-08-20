@@ -2,11 +2,14 @@
 app_demo();
 
 function app_demo() {
-    /*-----------------*/
-    /*- Hide Sections -*/
-    /*-----------------*/
+    hide_sections ();
+    change_title ();
+    click_siblings ();
+    disable_app ();
+
+function hide_sections () {
     $("#color-schemes").addClass("display-none");
-//    $("#header-section").addClass("display-none");
+//  $("#header-section").addClass("display-none");
     $("#photo-section").addClass("display-none");
     $("#sidebar-1-section").addClass("display-none");
     $("#sidebar-2-section").addClass("display-none");
@@ -18,18 +21,20 @@ function app_demo() {
     $("#what-should-you-include").addClass("display-none");
     $("#why-write-life-story").addClass("display-none");
     $(".toggle-all-children").off("click");
+} //end_hide
 
+function change_title () {
+    $(".header-font-style").html("Scott Family Tributes");
+}
+
+function click_siblings () {
     let delay = 0;
 
-    /*-----------------*/
-    /*- Click Sibling -*/
-    /*-----------------*/
     $(".tribute").each(function(index, element) {
-
         let sibling_id = "#" + this.closest('div.ptr').id;
 
         setTimeout(() => {
-            this.click();
+            element.click();
         }, 5 * 1000 + delay);
 
         setTimeout(() => {
@@ -38,15 +43,24 @@ function app_demo() {
             }, 5 * 1000);
         }, 5 * 1000 + delay); 
 
-        delay = delay + 5;
+//         delay = delay + (5 * 1000);
+    }); //end each loop
+    
+} //end click
 
-    }); // each loop
+function disable_app () {
+    setTimeout(() => {
+        $(".tribute").off("click");
 
-        setTimeout(() => {
-            $(".tribute").off("click");
-            $(".tribute").off("hover");
-            $(".tribute").removeClass("tribute");
-        }, 10 * 1000);
-
-} // end app_demo
-
+    $(".tribute").hover(function() {
+        $( this ).removeClass   ( "highlight-tribute" );             
+        }, function() {
+        $( this ).removeClass   ( 
+            "highlight-tribute" );
+    });
+    
+        $(".tribute").removeClass("tribute");
+    }, 5 * 1000);
+} //end disable
+            
+} //end app_demo
