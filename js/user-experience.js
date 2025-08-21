@@ -227,11 +227,11 @@
 
 app_demo();
 
-function app_demo() {
-    hide_sections ();
-    change_title ();
-    click_siblings ();
-    disable_app ();
+async function app_demo() {
+    set_title();
+    hide_sections();
+    click_demo_participants();
+    disable_demo_clicks();
 
 function hide_sections () {
     $("#color-schemes").addClass("display-none");
@@ -249,44 +249,49 @@ function hide_sections () {
     $(".toggle-all-children").off("click");
 } //end_hide
 
-function change_title () {
+function set_title () {
     $(".header-font-style").html("Scott Family Tributes");
 }
 
-function click_siblings () {
+async function click_demo_participants () {
     let delay = 0;
+    let duration = 0;
+    const elements = document.getElementsByClassName('tribute');
 
-    $(".tribute").each(function(index, element) {
-        let sibling_id = "#" + this.closest('div.ptr').id;
+    for (let i = 0; i < elements.length; i++) {
+        let sibling_id = "#" + elements[i].closest('div.ptr').id;
+        const promise = await click_sibling (elements[i], sibling_id, delay);
+        delay += 5000;
+    }//end for loop
 
-        setTimeout(() => {
-            element.click();
-        }, 5 * 1000 + delay);
+    return "1";
+} //end click siblings
 
-        setTimeout(() => {
-            $("html, body").animate({
-            scrollTop: $(sibling_id).offset().top
-            }, 5 * 1000);
-        }, 5 * 1000 + delay); 
+async function click_sibling (element, sibling, delay) {
+    setTimeout( () => {
+        $(element).click();
+    }, 5 * 1000 + delay);
 
-//         delay = delay + (5 * 1000);
-    }); //end each loop
-    
-} //end click
+    setTimeout( () => {
+        $("html, body").animate({
+        scrollTop: $(sibling).offset().top
+        }, 1 * 1000);
+}, 5 * 1000 + delay);
 
-function disable_app () {
+return "2";
+}
+
+async function disable_demo_clicks () {
     setTimeout(() => {
+        $(".tribute").hover(function() {
+            $( this ).removeClass   ( "highlight-tribute" );             
+            }, function() {
+            $( this ).removeClass   ( "highlight-tribute" );
+        });
         $(".tribute").off("click");
-
-    $(".tribute").hover(function() {
-        $( this ).removeClass   ( "highlight-tribute" );             
-        }, function() {
-        $( this ).removeClass   ( 
-            "highlight-tribute" );
-    });
-    
-        $(".tribute").removeClass("tribute");
     }, 5 * 1000);
+
+return "3";
 } //end disable
             
 } //end app_demo
