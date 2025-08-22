@@ -121,10 +121,10 @@
 //        $(".no-tribute").removeClass("no-tribute");
 
         $(".tribute").hover(function() {
-            $( this ).addClass   ( "highlight-tribute" );             
+            $( this ).addClass   ( "hover-tribute-color" );             
             }, function() {
             $( this ).removeClass   ( 
-                "highlight-tribute" );
+                "hover-tribute-color" );
         });
  
         $(".tribute").click(function() {       
@@ -141,18 +141,6 @@
             } else {
                $maincontent.hide(1500);
             }
- 
-            if ($body5.is(":hidden")) {
-               $body5.show(1500);
-            } else {
-               $body5.hide(1500);
-            }
-            
-            if ($body12.is(":hidden")) {
-               $body12.show(1500);
-            } else {
-               $body12.hide(1500);
-            }                    
          });
          
         $(".readmorebtn").click(function() {       
@@ -222,19 +210,27 @@
             $("#carolyn-bg-image").toggle();
             $("#carolyn-main-content").toggle();           
         });
-         
+
+        $("#color-schemes").addClass("display-none");         
         $(".toggle-all-children").click();
 
 app_demo();
 
 async function app_demo() {
+    let delay = 0;
+    let first_sibling = "";
+
     set_title();
     hide_sections();
-    click_demo_participants();
-    disable_demo_clicks();
+    const promise = await click_participants();
+    position_screen(first_sibling, delay);
 
+function set_title () {
+    $("header").removeClass("header-bg-color");
+    $("header").addClass("tribute-bg-color");
+    $(".header-font-style").html("Scott Family Tributes");
+}
 function hide_sections () {
-    $("#color-schemes").addClass("display-none");
 //  $("#header-section").addClass("display-none");
     $("#photo-section").addClass("display-none");
     $("#sidebar-1-section").addClass("display-none");
@@ -249,27 +245,30 @@ function hide_sections () {
     $(".toggle-all-children").off("click");
 } //end_hide
 
-function set_title () {
-    $(".header-font-style").html("Scott Family Tributes");
-}
+async function click_participants () {
 
-async function click_demo_participants () {
-    let delay = 0;
-    let duration = 0;
+
     const elements = document.getElementsByClassName('tribute');
 
     for (let i = 0; i < elements.length; i++) {
         let sibling_id = "#" + elements[i].closest('div.ptr').id;
+
+        if (i==0) {first_sibling = sibling_id;}
+
         const promise = await click_sibling (elements[i], sibling_id, delay);
         delay += 5000;
     }//end for loop
 
     return "1";
-} //end click siblings
+} //end click participants
 
 async function click_sibling (element, sibling, delay) {
     setTimeout( () => {
         $(element).click();
+        $(element).off("click");
+        $(element).removeClass("hover-tribute-color");
+        $(element).addClass("no-hover-tribute-color");
+        $(element).removeClass("tribute");
     }, 5 * 1000 + delay);
 
     setTimeout( () => {
@@ -280,20 +279,15 @@ async function click_sibling (element, sibling, delay) {
 
 return "2";
 }
+async function position_screen (first_sibling, delay) {
+    
+    setTimeout( () => {
+        $("html, body").animate({
+        scrollTop: $("#body").offset().top
+        }, 10 * 1000);
+}, 5 * 1000 + delay);
+}
 
-async function disable_demo_clicks () {
-    setTimeout(() => {
-        $(".tribute").hover(function() {
-            $( this ).removeClass   ( "highlight-tribute" );             
-            }, function() {
-            $( this ).removeClass   ( "highlight-tribute" );
-        });
-        $(".tribute").off("click");
-    }, 5 * 1000);
-
-return "3";
-} //end disable
-            
 } //end app_demo
 
 /* $("#sticker").unstick(); */

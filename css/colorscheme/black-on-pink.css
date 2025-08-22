@@ -68,7 +68,20 @@
     background-color:   #ff9393;
     color: #000000;
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
-
+  }
+  .tribute-bg-color {
+    background-color:   #000000;
+    color: #f5f5f5;
+    border: 1px solid #a5a5a5;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+  }
+  .hover-tribute-color  {
+      background: #454545;
+      color: #ffffff;
+  }
+  .no-hover-tribute-color  {
+      background: #ff9393;
+      color: #000000;
   }
 
  .side-bar-title {
