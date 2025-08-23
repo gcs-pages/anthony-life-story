@@ -1,14 +1,21 @@
 
 app_demo();
 
-function app_demo() {
-    hide_sections ();
-    change_title ();
-    click_siblings ();
-    disable_app ();
+async function app_demo() {
+    let delay = 0;
+    let first_sibling = "";
 
+    set_title();
+    hide_sections();
+    const promise = await click_participants();
+    position_screen(first_sibling, delay);
+
+function set_title () {
+    $("header").removeClass("header-bg-color");
+    $("header").addClass("tribute-bg-color");
+    $(".header-font-style").html("Scott Family Tributes");
+}
 function hide_sections () {
-    $("#color-schemes").addClass("display-none");
 //  $("#header-section").addClass("display-none");
     $("#photo-section").addClass("display-none");
     $("#sidebar-1-section").addClass("display-none");
@@ -23,44 +30,47 @@ function hide_sections () {
     $(".toggle-all-children").off("click");
 } //end_hide
 
-function change_title () {
-    $(".header-font-style").html("Scott Family Tributes");
+async function click_participants () {
+
+
+    const elements = document.getElementsByClassName('tribute');
+
+    for (let i = 0; i < elements.length; i++) {
+        let sibling_id = "#" + elements[i].closest('div.ptr').id;
+
+        if (i==0) {first_sibling = sibling_id;}
+
+        const promise = await click_sibling (elements[i], sibling_id, delay);
+        delay += 5000;
+    }//end for loop
+
+    return "1";
+} //end click participants
+
+async function click_sibling (element, sibling, delay) {
+    setTimeout( () => {
+        $(element).click();
+        $(element).off("click");
+        $(element).removeClass("hover-tribute-color");
+        $(element).addClass("no-hover-tribute-color");
+        $(element).removeClass("tribute");
+    }, 5 * 1000 + delay);
+
+    setTimeout( () => {
+        $("html, body").animate({
+        scrollTop: $(sibling).offset().top
+        }, 1 * 1000);
+}, 5 * 1000 + delay);
+
+return "2";
+}
+async function position_screen (first_sibling, delay) {
+    
+    setTimeout( () => {
+        $("html, body").animate({
+        scrollTop: $("html").offset().top
+        }, 5 * 1000);
+}, 5 * 1000 + delay);
 }
 
-function click_siblings () {
-    let delay = 0;
-
-    $(".tribute").each(function(index, element) {
-        let sibling_id = "#" + this.closest('div.ptr').id;
-
-        setTimeout(() => {
-            element.click();
-        }, 5 * 1000 + delay);
-
-        setTimeout(() => {
-            $("html, body").animate({
-            scrollTop: $(sibling_id).offset().top
-            }, 5 * 1000);
-        }, 5 * 1000 + delay); 
-
-//         delay = delay + (5 * 1000);
-    }); //end each loop
-    
-} //end click
-
-function disable_app () {
-    setTimeout(() => {
-        $(".tribute").off("click");
-
-    $(".tribute").hover(function() {
-        $( this ).removeClass   ( "highlight-tribute" );             
-        }, function() {
-        $( this ).removeClass   ( 
-            "highlight-tribute" );
-    });
-    
-        $(".tribute").removeClass("tribute");
-    }, 5 * 1000);
-} //end disable
-            
 } //end app_demo

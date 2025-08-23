@@ -283,8 +283,8 @@ async function position_screen (first_sibling, delay) {
     
     setTimeout( () => {
         $("html, body").animate({
-        scrollTop: $("#body").offset().top
-        }, 10 * 1000);
+        scrollTop: $("html").offset().top
+        }, 5 * 1000);
 }, 5 * 1000 + delay);
 }
 
