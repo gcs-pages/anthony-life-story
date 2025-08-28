@@ -1,0 +1,622 @@
+/*--------------------------*/
+/*-    Normalize.css       -*/
+/*--------------------------*/
+article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary{display:block;}audio,canvas,video{display:inline-block;*display:inline;*zoom:1;}audio:not([controls]){display:none;height:0;}[hidden]{display:none;}html{font-size:100%;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;}html,button,input,select,textarea{font-family:sans-serif;}body{margin:0;}a:focus{outline:thin dotted;}a:active,a:hover{outline:0;}h1{font-size:2em;margin:0.67em 0;}h2{font-size:1.5em;margin:0.83em 0;}h1{font-size:1.17em;margin:1em 0;}h4{font-size:1em;margin:1.33em 0;}h5{font-size:0.83em;margin:1.67em 0;}h6{font-size:0.75em;margin:2.33em 0;}abbr[title]{border-bottom:1px dotted;}b,strong{font-weight:bold;}blockquote{margin:1em 40px;}dfn{font-style:italic;}mark{background:#ff0;color:#000;}p,pre{margin:1em 0;}code,kbd,pre,samp{font-family:monospace,serif;_font-family:'courier new',monospace;font-size:1em;}pre{white-space:pre;white-space:pre-wrap;word-wrap:break-word;}q{quotes:none;}q:before,q:after{content:'';content:none;}small{font-size:75%;}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline;}sup{top:-0.5em;}sub{bottom:-0.25em;}dl,menu,ol,ul{margin:1em 0;}dd{margin:0 0 0 40px;}menu,ol,ul{padding:0 0 0 40px;}nav ul,nav ol{list-style:none;list-style-image:none;}img{border:0;-ms-interpolation-mode:bicubic;}svg:not(:root){overflow:hidden;}figure{margin:0;}form{margin:0;}fieldset{border:1px solid #c0c0c0;margin:0 2px;padding:0.35em 0.625em 0.75em;}legend{border:0;padding:0;white-space:normal;*margin-left:-7px;}button,input,select,textarea{font-size:100%;margin:0;vertical-align:baseline;*vertical-align:middle;}button,input{line-height:normal;}button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer;*overflow:visible;}button[disabled],input[disabled]{cursor:default;}input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0;*height:13px;*width:13px;}input[type="search"]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box;}input[type="search"]::-webkit-search-cancel-button,input[type="search"]::-webkit-search-decoration{-webkit-appearance:none;}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0;}textarea{overflow:auto;vertical-align:top;}table{border-collapse:collapse;border-spacing:0;}
+/*---------------------------------------*/
+/*-    Mobile First CSS Declarations    -*/
+/*---------------------------------------*/
+* {
+    box-sizing: border-box;
+    }
+
+    h1, h2, h3 {
+    font-size:          2.6vw;     /* Make H1 font size scaleable at 3.6 percent viewport width */
+    text-align:         center;
+}
+  
+#body {
+    margin:             10px;
+    border:             1px solid black;
+    text-overflow:      ellipsis;
+    overflow:           hidden;
+    background-image:   url("../backgrounds/20.jpg");
+    background-size:    cover; 
+    background-repeat:  no-repeat;
+}
+
+#catherine-bg-image {
+    margin:             0px;
+/*  border-top: 1px solid #000000; */
+    border-left:   1px solid #000000;
+    border-right:  1px solid #000000;
+    border-bottom: 1px solid #000000;
+    text-overflow:      ellipsis;
+    overflow:           hidden;
+    background-image:   url("../img/catherine.jpg");
+    background-size:    cover; 
+    background-repeat:  round;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.catherine-footer {
+    background: #d5d5d5;
+    width: 97.5%;
+    margin: 10px;
+    padding: 5px;
+    border: 1px solid #000000;
+}
+
+#peggy-bg-image {
+    margin:             0px;
+/*  border-top: 1px solid #000000; */
+    border-left:   1px solid #000000;
+    border-right:  1px solid #000000;
+    border-bottom: 1px solid #000000;
+    text-overflow:      ellipsis;
+    overflow:           hidden;
+    background-image:   url("../img/peggy.jpg");
+    background-size:    cover; 
+    background-repeat:  round;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+            
+#butchie-bg-image {
+    margin:             0px;
+/*  border-top: 1px solid #000000; */
+    border-left:   1px solid #000000;
+    border-right:  1px solid #000000;
+    border-bottom: 1px solid #000000;
+    text-overflow:      ellipsis;
+    overflow:           hidden;
+    background-image:   url("../img/butchie.jpg");
+    background-size:    cover; 
+    background-repeat:  round;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}      
+
+#mary-bg-image {
+    margin:             0px;
+/*  border-top: 1px solid #000000; */
+    border-left:   1px solid #000000;
+    border-right:  1px solid #000000;
+    border-bottom: 1px solid #000000;
+    text-overflow:      ellipsis;
+    overflow:           hidden;
+    background-image:   url("../img/mary.jpg");
+    background-size:    cover; 
+    background-repeat:  round;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+} 
+
+#larry-bg-image {
+    margin:             0px;
+/*  border-top: 1px solid #000000; */
+    border-left:   1px solid #000000;
+    border-right:  1px solid #000000;
+    border-bottom: 1px solid #000000;
+    text-overflow:      ellipsis;
+    overflow:           hidden;
+    background-image:   url("../img/larry.jpg");
+    background-size:    cover; 
+    background-repeat:  round;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}        
+
+#gregory-bg-image {
+    margin:             0px;
+/*  border-top: 1px solid #000000; */
+    border-left:   1px solid #000000;
+    border-right:  1px solid #000000;
+    border-bottom: 1px solid #000000;
+    text-overflow:      ellipsis;
+    overflow:           hidden;
+    background-image:   url("../img/gregory.jpg");
+    background-size:    cover; 
+    background-repeat:  round;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+#anthony-bg-image {
+    margin:             0px;
+/*  border-top: 1px solid #000000; */
+    border-left:   1px solid #000000;
+    border-right:  1px solid #000000;
+    border-bottom: 1px solid #000000;
+    text-overflow:      ellipsis;
+    overflow:           hidden;
+    background-image:   url("../img/anthony.jpg");
+    background-size:    cover; 
+    background-repeat:  round;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}      
+#kathleen-bg-image {
+    margin:             0px;
+/*  border-top: 1px solid #000000; */
+    border-left:   1px solid #000000;
+    border-right:  1px solid #000000;
+    border-bottom: 1px solid #000000;
+    text-overflow:      ellipsis;
+    overflow:           hidden;
+    background-image:   url("../img/kathleen.jpg");
+    background-size:    cover; 
+    background-repeat:  round;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+#laura-bg-image {
+    margin:             0px;
+/*  border-top: 1px solid #000000; */
+    border-left:   1px solid #000000;
+    border-right:  1px solid #000000;
+    border-bottom: 1px solid #000000;
+    text-overflow:      ellipsis;
+    overflow:           hidden;
+    background-image:   url("../img/laura.jpg");
+    background-size:    cover; 
+    background-repeat:  round;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+#carolyn-bg-image {
+    margin:             0px;
+/*  border-top: 1px solid #000000; */
+    border-left:   1px solid #000000;
+    border-right:  1px solid #000000;
+    border-bottom: 1px solid #000000;
+    text-overflow:      ellipsis;
+    overflow:           hidden;
+    background-image:   url("../img/carolyn.jpg");
+    background-size:    cover; 
+    background-repeat:  round;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}                 
+
+.descendant {  
+}
+
+.descendant-wife-photo  {
+    float:    left;
+    margin:   auto;
+    width:    100px; 
+    height:   100px;
+}
+
+.descendant-photo  {
+    float:    left;
+    margin:   auto;
+    width:    50px; 
+    height:   50px;
+}
+
+.enlarge-descendant-wife-photo  {
+    margin-top:   -5px;
+    margin-left:   65px;
+    width:         150px; 
+    height:        150px;
+}
+
+.enlarge-descendant-photo  {
+    margin-top:   -5px;
+    margin-left:   65px;
+    width:         150px; 
+    height:        150px;
+}
+
+.descendant-wife {
+}
+
+.descendant-children {
+}
+
+.descendant-grandchildren {
+    clear:        both;
+    list-style:   decimal;
+    padding-left: 30px;
+    color:        #ffffff;
+    line-height:  normal; 
+}
+
+img {
+    width:    100%;
+    margin:   auto;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+p {
+    margin-left:    10px;
+    margin-right:   10px;
+}
+
+.copyright {
+    clear:          both;
+    width:          130px;
+    font-size:      .83em; 
+    margin-top:     10px;
+    text-align:     center;
+}
+/*-----------------------------------------------------*/
+/*-   (Mobile Portrait) Declaratons                   -*/
+/*-----------------------------------------------------*/
+  body {
+    background-color:   #000000;
+  }
+  
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+      background-color: #A0522D;
+      color:         #ffffff;
+      margin-top:    5px;
+      margin-bottom: 5px;
+      margin-left:   5px;
+      margin-right:  5px;
+      padding:       5px;
+      box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+  }
+  .text-on-background-1 {
+      background:   #A0522D;
+      color:        #ffffff;
+      text-align:   center;
+  }
+
+  .birth-death-date-color {
+      background:   #454545;
+      color:        #ffffff;
+  }
+
+  .text-on-background-2 {
+      background:   #A0522D;
+      color:        #ffffff;
+      text-align:   left;
+  }
+
+  .georgia-state-color {
+      background-color:   #FFE5B4;
+      color:              #000000;
+      font-size:          1em;
+      font-weight:        bold;
+  }
+  
+  .illinois-state-color {
+      background-color:   #EE82EE;
+      color:              #000000;
+      font-size:          1em;
+      font-weight:        bold;
+  }
+  
+ [id*="main-content"] {
+      background-color: #e9e9e9;
+      border:           1px solid black;
+  }
+
+  [class*="col-"] {
+    width: 100%;
+  }
+      
+   h1 {font-size:   1em;}
+   h2 {font-size:  .75em;}
+   h3 {font-size:  .58em;}
+   h4 {font-size:  .50em;}
+   h5 {font-size:  .41em;}
+   h6 {font-size:  .37em;}
+   
+  .col-s-1 {width: 8.33%;}
+  .col-s-2 {width: 16.66%;}
+  .col-s-3 {width: 25%;}
+  .col-s-4 {width: 33.33%;}
+  .col-s-5 {width: 41.66%;}
+  .col-s-6 {width: 50%;}
+  .col-s-7 {width: 58.33%;}
+  .col-s-8 {width: 66.66%;}
+  .col-s-9 {width: 75%;}
+  .col-s-10 {width: 83.33%;}
+  .col-s-11 {width: 91.66%;}
+  .col-s-12 {width: 100%;}
+  
+/*-------------------------------------------------------*/
+/*-  (Mobile) Landscape Declarations                    -*/
+/*-------------------------------------------------------*/
+@media only screen and (orientation: landscape) {
+  /* mobile only: */
+  
+  body {
+        background-color:   #000000;
+  }
+  
+  [id*="-main-content"] {
+      margin-top:         35px;
+
+  }  
+  .col-1 {width: 8.33%;}
+  .col-2 {width: 16.66%;}
+  .col-3, .col-3a {width: 25%;}
+  .col-4 {width: 33.33%;}
+  .col-5 {width: 41.66%;}
+  .col-6 {width: 50%;}
+  .col-7 {width: 58.33%;}
+  .col-8 {width: 66.66%;}
+  .col-9 {width: 75%;}
+  .col-10 {width: 83.33%;}
+  .col-11 {width: 91.66%;}
+  .col-12 {width: 100%;}
+/*-------------------*/
+/*- Mother Gertrude -*/
+/*-------------------*/
+#gertrude-main-content
+    {
+        float: left;
+    }
+
+#gertrude-sidebar-1
+    {
+/*        float: left; */
+    }
+
+#gertrude-sidebar-2
+{   
+      float: left;
+}
+
+      #gertrude-foot-note
+      {
+          clear:  left;
+          border: 1px solid black;
+          background-color:   #00ffff;
+          text-align:   center;
+          font-size:    1.5em;
+          
+      }
+/*--------------*/
+/*- Catherine  -*/
+/*--------------*/
+      #catherine
+      {
+          clear: both;
+          float: left;
+      }
+      #catherine-bg-image
+      {
+          clear: both;
+          float: left;
+      }
+      #catherine-main-content
+      {
+          float: right;
+      }
+/*--------------*/
+/*- Peggy      -*/
+/*--------------*/      
+      #peggy
+      {   
+          clear: both;
+          float: left;
+      }
+      #peggy-bg-image
+      {
+          clear: both;
+          float: left;
+      }
+      #peggy-main-content
+      {
+          float: right;
+      }
+/*-----------*/
+/*- Butchie -*/
+/*-----------*/
+      #butchie
+      {
+          clear: both;
+          float: left;
+      }
+      #butchie-bg-image
+      {
+          clear: both;
+          float: left;
+      }
+      #butchie-main-content
+      {
+          float: left;
+      }
+/*-----------*/
+/*- Mary    -*/
+/*-----------*/      
+      #mary
+      {
+          clear: both;
+          float: left;
+      }
+      #mary-bg-image
+      {
+          clear: both;
+          float: left;
+      }
+      #mary-main-content
+      {
+          float: left;
+      }          
+/*----------*/
+/*- Larry  -*/
+/*----------*/
+      #larry
+      {   clear: both;
+          float: left;
+      }
+      #larry-bg-image
+      {
+          clear: both;
+          float: left;
+      }
+      #larry-main-content
+      {
+          float: left;
+      }
+/*------------*/
+/*- Gregory  -*/
+/*------------*/      
+      #gregory
+      {
+          clear: both;
+          float: left;
+      }
+      #gregory-bg-image
+      {
+          clear: both;
+          float: left;
+      }
+      #gregory-main-content
+      {
+          float: left;
+      }           
+/*-----------*/
+/*- Anthony -*/
+/*-----------*/
+      #anthony
+      {
+          clear: both;
+          float: left;
+      }
+      #anthony-bg-image
+      {
+          clear: both;
+          float: left;
+      }      
+      #anthony-main-content
+      {
+          float: left;
+      }
+/*------------*/
+/*- Kathleen -*/
+/*------------*/      
+      #kathleen
+      {
+          clear: both;
+          float: left;
+      }
+      #kathleen-bg-image
+      {
+          clear: both;
+          float: left;
+      }      
+      #kathleen-main-content
+      {
+          float: left;
+      }            
+/*---------*/
+/*- Laura -*/
+/*---------*/
+      #laura
+      {
+          clear: both;
+          float: left;
+      }
+      #laura-bg-image
+      {
+          clear: both;
+          float: left;
+      }            
+      #laura-main-content
+      {
+          float: left;
+      }
+/*-----------*/
+/*- Carolyn -*/
+/*-----------*/      
+         #carolyn
+      {
+          clear: both;
+          float: left;
+      }
+      #carolyn-bg-image
+      {
+          clear: both;
+          float: left;
+      }            
+      #carolyn-main-content
+      {
+          float: left;
+      }                
+
+      footer {
+          clear: both;
+  }
+}
+
+/*-----------------------------------------------------*/
+/*-   (Tablet) Accomodations                          -*/
+/*-----------------------------------------------------*/
+@media only screen and (min-width: 600px) {
+  
+  [id*="-main-content"] {
+      margin-top:         35px;
+  }  
+  /* For tablets: */
+  body {
+        background-color:   #000000;
+  }
+   h1 {font-size:   1.25em;}
+   h2 {font-size:  .93em;}
+   h3 {font-size:  .72em;}
+   h4 {font-size:  .62em;}
+   h5 {font-size:  .51em;}
+   h6 {font-size:  .46em;}
+   
+  .col-1 {width: 8.33%;}
+  .col-2 {width: 16.66%;}
+  .col-3, .col-3a {width: 25%;}
+  .col-4 {width: 33.33%;}
+  .col-5 {width: 41.66%;}
+  .col-6 {width: 50%;}
+  .col-7 {width: 58.33%;}
+  .col-8 {width: 66.66%;}
+  .col-9 {width: 75%;}
+  .col-10 {width: 83.33%;}
+  .col-11 {width: 91.66%;}
+  .col-12 {width: 100%;}
+
+  footer {
+      clear: both;
+  }
+}
+/*-----------------------------------------------------*/
+/*- (Desktops) Accomodations                          -*/
+/*-----------------------------------------------------*/
+@media only screen and (min-width: 768px) {
+  
+  [id*="-main-content"] {
+      margin-top:         35px;
+
+  }  
+  
+  body {
+        background-color:   #000000;
+  }
+  
+   h1 {font-size:   1.56em;}
+   h2 {font-size:   1.16em;}
+   h3 {font-size:  .90em;}
+   h4 {font-size:  .77em;}
+   h5 {font-size:  .63em;}
+   h6 {font-size:  .57em;}
+  
+  /* For desktop: */
+  .col-1 {width: 8.33%;}
+  .col-2 {width: 16.66%;}
+  .col-3, .col-3a {width: 25%;}
+  .col-4 {width: 33.33%;}
+  .col-5 {width: 41.66%;}
+  .col-6 {width: 50%;}
+  .col-7 {width: 58.33%;}
+  .col-8 {width: 66.66%;}
+  .col-9 {width: 75%;}
+  .col-10 {width: 83.33%;}
+  .col-11 {width: 91.66%;}
+  .col-12 {width: 100%;}
+
+  footer {
+      clear: both;
+  }
+}
+
