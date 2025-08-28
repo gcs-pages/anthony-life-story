@@ -226,7 +226,7 @@ async function app_demo() {
 function set_title () {
     $("header").removeClass("header-bg-color");
     $("header").addClass("tribute-bg-color");
-    $(".header-font-style").html("2025 Home Goings . . .");
+    $(".header-font-style").html("Scott Family Tributes . . .");
 }
 function hide_sections () {
 //  $("#header-section").addClass("display-none");
