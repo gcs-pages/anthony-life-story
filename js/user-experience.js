@@ -254,7 +254,7 @@ async function click_participants () {
         if (i==0) {first_sibling = sibling_id;}
 
         const promise = await click_sibling (elements[i], sibling_id, delay);
-        delay += 3000;
+        delay += 3000;  //set delay (advance to next tribute) . . .
     }//end for loop
 
     return "1";
@@ -269,11 +269,11 @@ async function click_sibling (element, sibling, delay) {
         $(element).removeClass("tribute");
     }, 5 * 1000 + delay);
 
-    setTimeout( () => {
+    setTimeout( () => { 
         $("html, body").animate({
         scrollTop: $(sibling).offset().top
-        }, 1 * 1000);
-}, 5 * 1000 + delay);
+        }, 1 * 1000);  //set delay (transition duration)
+}, 5 * 1000 + delay);  //set delay (next tribute) . . .
 
 return "2";
 }
@@ -282,8 +282,8 @@ async function position_screen (first_sibling, delay) {
     setTimeout( () => {
         $("html, body").animate({
         scrollTop: $("html").offset().top
-        }, 5 * 1000);
-}, 5 * 1000 + delay);
+        }, 5 * 1000);  // set delay (return to top duration)
+}, 5 * 1000 + delay);  // set delay (return to top)
 }
 
 } //end app_demo
