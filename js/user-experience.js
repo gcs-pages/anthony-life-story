@@ -45,6 +45,7 @@
         $("#gertrude-sidebar-1").toggle(2000);
         $("#gertrude-sidebar-2").toggle(2000);  
         $("#gertrude-main-content").toggle(3000);
+        $("#gertrude-footer-1").toggle(3000);        
         $("#gertrude-footer-2").toggle(3000);
         $("#what-should-i-include").toggle(3500);
         $("#what-should-i-include-main-content").toggle(3500);
@@ -116,8 +117,7 @@
             $( this ).children("span").removeClass   ( "text-on-background-1" );
         });
 
-//        $(".no-tribute").addClass("tribute");
-//        $(".no-tribute").removeClass("no-tribute");
+        $(".no-tribute").addClass("tribute"); //if no demo all in . . .
 
         $(".tribute").hover(function() {
             $( this ).addClass   ( "hover-tribute-color" );             
@@ -217,18 +217,25 @@ app_demo();
 
 async function app_demo() {
     let delay = 0;
-    let first_sibling = "";
-    set_title();
-    hide_sections();
-    const promise = await click_participants();
-    position_screen(first_sibling, delay);
+    let first_tributee = "";
+    set_screen_title();
+    show_tributees_only();
+    show_desired_panels();
+    const promise = await click_tributees();
+    position_screen(first_tributee, delay);
 
-function set_title () {
+function show_tributees_only () {
+    $(".no-tribute").off("click");
+    $(".no-tribute").removeClass("hover-tribute-color");
+    $(".no-tribute").addClass("no-hover-tribute-color");
+    $(".no-tribute").removeClass("tribute");
+}
+function set_screen_title () {
     $("header").removeClass("header-bg-color");
     $("header").addClass("tribute-bg-color");
     $(".header-font-style").html("Scott Family Tributes . . .");
 }
-function hide_sections () {
+function show_desired_panels () {
 //  $("#header-section").addClass("display-none");
     $("#photo-section").addClass("display-none");
     $("#sidebar-1-section").addClass("display-none");
@@ -243,24 +250,23 @@ function hide_sections () {
     $(".toggle-all-children").off("click");
 } //end_hide
 
-async function click_participants () {
-
+async function click_tributees () {
 
     const elements = document.getElementsByClassName('tribute');
 
     for (let i = 0; i < elements.length; i++) {
         let sibling_id = "#" + elements[i].closest('div.ptr').id;
 
-        if (i==0) {first_sibling = sibling_id;}
+        if (i==0) {first_tributee = sibling_id;}
 
-        const promise = await click_sibling (elements[i], sibling_id, delay);
+        const promise = await click_tributee (elements[i], sibling_id, delay);
         delay += 3000;  //set delay (advance to next tribute) . . .
     }//end for loop
 
     return "1";
 } //end click participants
 
-async function click_sibling (element, sibling, delay) {
+async function click_tributee (element, sibling, delay) {
     setTimeout( () => {
         $(element).click();
         $(element).off("click");
@@ -277,7 +283,7 @@ async function click_sibling (element, sibling, delay) {
 
 return "2";
 }
-async function position_screen (first_sibling, delay) {
+async function position_screen (first_tributee, delay) {
     
     setTimeout( () => {
         $("html, body").animate({
@@ -287,8 +293,6 @@ async function position_screen (first_sibling, delay) {
 }
 
 } //end app_demo
-
-/* $("#sticker").unstick(); */
 
 function getAge(DOB, DOD) {
     let today       = new Date();
@@ -313,6 +317,9 @@ function getAge(DOB, DOD) {
         age = age - 1;
     }
     return "<strong><mark>" + age + "</mark></strong>"  + comment ;
-}
-        
-    });
+
+} //end getAge
+
+/* $("#sticker").unstick(); */
+
+}); //end (document).ready
