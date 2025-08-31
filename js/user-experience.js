@@ -213,29 +213,29 @@
         $("#color-schemes").addClass("display-none");         
         $(".toggle-all-children").click();
 
+/* $("#sticker").unstick(); */
+
 app_demo();
 
 async function app_demo() {
     let delay = 0;
     let first_tributee = "";
-    set_screen_title();
-    show_tributees_only();
-    show_desired_panels();
+
+    change_title();
+    hide_panels();
+    remove_non_tributees();
+    
     const promise = await click_tributees();
+
     position_screen(first_tributee, delay);
 
-function show_tributees_only () {
-    $(".no-tribute").off("click");
-    $(".no-tribute").removeClass("hover-tribute-color");
-    $(".no-tribute").addClass("no-hover-tribute-color");
-    $(".no-tribute").removeClass("tribute");
-}
-function set_screen_title () {
+function change_title () {
     $("header").removeClass("header-bg-color");
     $("header").addClass("tribute-bg-color");
     $(".header-font-style").html("Scott Family Tributes . . .");
-}
-function show_desired_panels () {
+} //end change title
+
+function hide_panels () {
 //  $("#header-section").addClass("display-none");
     $("#photo-section").addClass("display-none");
     $("#sidebar-1-section").addClass("display-none");
@@ -248,10 +248,16 @@ function show_desired_panels () {
     $("#what-should-you-include").addClass("display-none");
     $("#why-write-life-story").addClass("display-none");
     $(".toggle-all-children").off("click");
-} //end_hide
+} //end hide panels
+
+function remove_non_tributees () {
+    $(".no-tribute").off("click");
+    $(".no-tribute").removeClass("hover-tribute-color");
+    $(".no-tribute").addClass("no-hover-tribute-color");
+    $(".no-tribute").removeClass("tribute");
+} // end remove non tributees
 
 async function click_tributees () {
-
     const elements = document.getElementsByClassName('tribute');
 
     for (let i = 0; i < elements.length; i++) {
@@ -264,7 +270,7 @@ async function click_tributees () {
     }//end for loop
 
     return "1";
-} //end click participants
+} //end click tributees
 
 async function click_tributee (element, sibling, delay) {
     setTimeout( () => {
@@ -273,24 +279,24 @@ async function click_tributee (element, sibling, delay) {
         $(element).removeClass("hover-tribute-color");
         $(element).addClass("no-hover-tribute-color");
         $(element).removeClass("tribute");
-    }, 5 * 1000 + delay);
+    }, 5 * 1000 + delay); //set click (delay) . . .
 
     setTimeout( () => { 
         $("html, body").animate({
         scrollTop: $(sibling).offset().top
-        }, 1 * 1000);  //set delay (transition duration)
-}, 5 * 1000 + delay);  //set delay (next tribute) . . .
+        }, 1 * 1000);  //set delay (transition duration) . . .
+}, 5 * 1000 + delay);  //set delay (transition delay) . . .
 
 return "2";
-}
+} //end click tributee
+
 async function position_screen (first_tributee, delay) {
-    
     setTimeout( () => {
         $("html, body").animate({
         scrollTop: $("html").offset().top
         }, 5 * 1000);  // set delay (return to top duration)
 }, 5 * 1000 + delay);  // set delay (return to top)
-}
+} //end position screen
 
 } //end app_demo
 
@@ -317,9 +323,6 @@ function getAge(DOB, DOD) {
         age = age - 1;
     }
     return "<strong><mark>" + age + "</mark></strong>"  + comment ;
-
 } //end getAge
-
-/* $("#sticker").unstick(); */
 
 }); //end (document).ready
