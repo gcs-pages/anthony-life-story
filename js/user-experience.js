@@ -279,7 +279,7 @@ async function click_tributee (element, sibling, delay) {
         $(element).removeClass("hover-tribute-color");
         $(element).addClass("no-hover-tribute-color");
         $(element).removeClass("tribute");
-    }, 5 * 1000 + delay); //set click (delay) . . .
+    }, 5.5 * 1000 + delay); //set click (delay) . . .
 
     setTimeout( () => { 
         $("html, body").animate({
