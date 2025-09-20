@@ -1,5 +1,8 @@
     "use strict";
 
+    let delay = 0;
+    let first_tributee = "";
+
     let d = new Date();
     let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
     document.getElementById("copyright-1").innerHTML = "<strong><mark>© Copyright " + d.getFullYear() + " <br>Family Tree Creations</mark></strong>.";
@@ -212,15 +215,25 @@
 
         $("#color-schemes").addClass("display-none");         
         $(".toggle-all-children").click();
+        /* $("#sticker").unstick(); */
 
-/* $("#sticker").unstick(); */
+/*--------------------*/
+/*- Application Demo -*/
+/*--------------------*/
+let demo  = "yes";
 
-app_demo();
+if (demo == "yes") {
+    app_demo();
+} else if (demo == "no") {
+    position_screen_top();
+} else {
+    document.write ("!!! Unknown Runtime Mode !!!");
+}
+/*--------------------*/
+/*- Application Demo -*/
+/*--------------------*/
 
 async function app_demo() {
-    let delay = 0;
-    let first_tributee = "";
-
     change_title();
     hide_panels();
     remove_non_tributees();
@@ -290,6 +303,8 @@ async function click_tributee (element, sibling, delay) {
 return "2";
 } //end click tributee
 
+} //end app_demo
+
 async function position_screen (first_tributee, delay) {
     setTimeout( () => {
         $("html, body").animate({
@@ -298,7 +313,15 @@ async function position_screen (first_tributee, delay) {
 }, 5 * 1000 + delay);  // set delay (return to top)
 } //end position screen
 
-} //end app_demo
+
+async function position_screen_top () {
+    setTimeout( () => {
+        $("html, body").animate({
+        scrollTop: $("html").offset().top
+        }, 2.5 * 1000);  // set delay (return to top duration)
+}, 0 * 1000 + delay);  // set delay (return to top)
+} //end position screen
+
 
 function getAge(DOB, DOD) {
     let today       = new Date();
