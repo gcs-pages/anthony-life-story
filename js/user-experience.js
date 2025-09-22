@@ -1,12 +1,11 @@
     "use strict";
 
-    let delay = 0;
+    let delay = "";
     let first_tributee = "";
-
+    let siblingAge = "";
     let d = new Date();
     let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
     document.getElementById("copyright-1").innerHTML = "<strong><mark>© Copyright " + d.getFullYear() + " <br>Family Tree Creations</mark></strong>.";
-    let siblingAge = "";
 
     $(document).ready(function() {  
         $("#sticker").sticky({ topSpacing: 0, bottomSpacing: 65, center:true, className:"is-sticky" });
@@ -215,6 +214,7 @@
 
         $("#color-schemes").addClass("display-none");         
         $(".toggle-all-children").click();
+
         /* $("#sticker").unstick(); */
 
 /*--------------------*/
@@ -222,25 +222,27 @@
 /*--------------------*/
 let demo  = "yes";
 
-if (demo == "yes") {
-    app_demo();
-} else if (demo == "no") {
-    position_screen_top();
-} else {
-    document.write ("!!! Unknown Runtime Mode !!!");
+switch ( demo ) {
+    case "yes":
+        delay = 0;
+        app_demo();
+        break;
+    case "no":
+        delay = 0;
+        position_app_screen();
+        break;
+    default:
+        $("body").addClass("error-message");
+        $("body").html("<div><p id='err-msg'><span >*** Unknown Runtime Parameter ***</span></p></div>");
+        break;
 }
-/*--------------------*/
-/*- Application Demo -*/
-/*--------------------*/
 
 async function app_demo() {
     change_title();
     hide_panels();
-    remove_non_tributees();
-    
+    remove_non_tributees();   
     const promise = await click_tributees();
-
-    position_screen(first_tributee, delay);
+    position_demo_screen(first_tributee, delay);
 
 function change_title () {
     $("header").removeClass("header-bg-color");
@@ -278,50 +280,53 @@ async function click_tributees () {
 
         if (i==0) {first_tributee = sibling_id;}
 
-        const promise = await click_tributee (elements[i], sibling_id, delay);
+        const promise = await click_scroll_tributee (elements[i], sibling_id, delay);
         delay += 3000;  //set delay (advance to next tribute) . . .
     }//end for loop
 
     return "1";
 } //end click tributees
 
-async function click_tributee (element, sibling, delay) {
+async function click_scroll_tributee (element, sibling, delay) {
+    
     setTimeout( () => {
         $(element).click();
         $(element).off("click");
         $(element).removeClass("hover-tribute-color");
         $(element).addClass("no-hover-tribute-color");
         $(element).removeClass("tribute");
-    }, 5.5 * 1000 + delay); //set click (delay) . . .
-
+    }, 4 * 1000 + delay); //set click (delay) . . .
+ 
     setTimeout( () => { 
         $("html, body").animate({
         scrollTop: $(sibling).offset().top
-        }, 1 * 1000);  //set delay (transition duration) . . .
-}, 5 * 1000 + delay);  //set delay (transition delay) . . .
+        }, 2.0 * 1000);  //set delay (transition duration) . . .
+    }, 5 * 1000 + delay);  //set delay (transition delay) . . .
 
 return "2";
 } //end click tributee
 
 } //end app_demo
 
-async function position_screen (first_tributee, delay) {
+async function position_demo_screen (first_tributee, delay) {
     setTimeout( () => {
         $("html, body").animate({
         scrollTop: $("html").offset().top
         }, 5 * 1000);  // set delay (return to top duration)
 }, 5 * 1000 + delay);  // set delay (return to top)
-} //end position screen
+} //end position demo screen
 
-
-async function position_screen_top () {
+async function position_app_screen () {
     setTimeout( () => {
         $("html, body").animate({
         scrollTop: $("html").offset().top
-        }, 2.5 * 1000);  // set delay (return to top duration)
+        }, .5 * 1000);  // set delay (return to top duration)
 }, 0 * 1000 + delay);  // set delay (return to top)
-} //end position screen
+} //end position app screen
 
+/*--------------------*/
+/*- Application Demo -*/
+/*--------------------*/
 
 function getAge(DOB, DOD) {
     let today       = new Date();
